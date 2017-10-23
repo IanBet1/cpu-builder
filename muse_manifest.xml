@@ -1,0 +1,99 @@
+<manifest alg="2" build="2017.0.0.363" opt="true" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive,cachebuster" exportTarget="other" domain="www.cpubuilder.com.br" resolutions="1x,2x" timestamp="1501440244243">
+  <folder name="css">
+    <file name="site_global.css" crc="4247960594"/>
+    <file name="master_a-master.css" crc="534736446" ref="gabinetes:placas-mae:discos-rigidos:ssds:placas-video:memorias:monteseupc:fontes:index:processadores"/>
+    <file name="nomq_preview_master_a-master.css" crc="262263188" ref="gabinetes:placas-mae:discos-rigidos:ssds:placas-video:memorias:monteseupc:fontes:index:processadores"/>
+    <file name="gabinetes.css" crc="3841043180" ref="gabinetes"/>
+    <file name="nomq_gabinetes.css" crc="4113109094" ref="gabinetes"/>
+    <file name="iefonts_gabinetes.css" crc="373203005" ref="gabinetes"/>
+    <file name="placas-mae.css" crc="3954989454" ref="placas-mae"/>
+    <file name="nomq_placas-mae.css" crc="4084364386" ref="placas-mae"/>
+    <file name="iefonts_placas-mae.css" crc="373203005" ref="placas-mae"/>
+    <file name="discos-rigidos.css" crc="3850710390" ref="discos-rigidos"/>
+    <file name="nomq_discos-rigidos.css" crc="4079354320" ref="discos-rigidos"/>
+    <file name="iefonts_discos-rigidos.css" crc="373203005" ref="discos-rigidos"/>
+    <file name="ssds.css" crc="488586001" ref="ssds"/>
+    <file name="nomq_ssds.css" crc="340748335" ref="ssds"/>
+    <file name="iefonts_ssds.css" crc="373203005" ref="ssds"/>
+    <file name="placas-video.css" crc="3850054840" ref="placas-video"/>
+    <file name="nomq_placas-video.css" crc="159055908" ref="placas-video"/>
+    <file name="iefonts_placas-video.css" crc="373203005" ref="placas-video"/>
+    <file name="memorias.css" crc="245017039" ref="memorias"/>
+    <file name="nomq_memorias.css" crc="244210903" ref="memorias"/>
+    <file name="iefonts_memorias.css" crc="373203005" ref="memorias"/>
+    <file name="monteseupc.css" crc="4252519177" ref="monteseupc"/>
+    <file name="nomq_monteseupc.css" crc="446672561" ref="monteseupc"/>
+    <file name="iefonts_monteseupc.css" crc="373203005" ref="monteseupc"/>
+    <file name="fontes.css" crc="33411479" ref="fontes"/>
+    <file name="nomq_fontes.css" crc="359090794" ref="fontes"/>
+    <file name="iefonts_fontes.css" crc="373203005" ref="fontes"/>
+    <file name="index.css" crc="230196434" ref="index"/>
+    <file name="nomq_index.css" crc="3886338228" ref="index"/>
+    <file name="iefonts_index.css" crc="373203005" ref="index"/>
+    <file name="processadores.css" crc="426336688" ref="processadores"/>
+    <file name="nomq_processadores.css" crc="375105123" ref="processadores"/>
+    <file name="iefonts_processadores.css" crc="373203005" ref="processadores"/>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="209076791" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="museutils.js" crc="163421577" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="whatinput.js" crc="86476730" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="museconfig.js" crc="36584860" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="jquery.watch.js" crc="104486786" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="webpro.js" crc="3848665353" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="musewpslideshow.js" crc="4041717617" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="jquery.museoverlay.js" crc="36492500" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="touchswipe.js" crc="404375771" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="jquery.museresponsive.js" crc="4146931122" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="require.js" crc="244322403" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+  </folder>
+  <folder name="images">
+    <file name="cpubuilder-favicon.ico" crc="3800856562" ref="index"/>
+    <file name="settings-gears-u2635.png" crc="97535365" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="settings-gears-u2635_2x.png" crc="165824246" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="cpu-images1.jpg" crc="4174121210" seo="true" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="blank.gif" crc="4208392903" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="loading.gif" crc="3815509949" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="if_magnifyingglass_1055031.png" crc="4076294038" seo="true" ref="index"/>
+    <file name="if_tools_1054957.png" crc="221358578" seo="true" ref="index"/>
+    <file name="if_money_1055022.png" crc="4276735278" seo="true" ref="index"/>
+    <file name="build.png" crc="354769879" seo="true" ref="index"/>
+    <file name="facebook.png" crc="3984130505" seo="true" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="facebook_2x.png" crc="3812092235" seo="true" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="twitter.png" crc="4033483891" seo="true" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="twitter_2x.png" crc="19455742" seo="true" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="github-mark-light-32px.png" crc="4137119771" seo="true" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="github-mark-light-32px_2x.png" crc="151080815" seo="true" ref="index:monteseupc:processadores:placas-mae:memorias:discos-rigidos:ssds:placas-video:fontes:gabinetes"/>
+    <file name="if_magnifyingglass_1055031118x118.png" crc="4277914338" seo="true" ref="index"/>
+    <file name="if_tools_1054957118x118.png" crc="124257475" seo="true" ref="index"/>
+    <file name="if_money_1055022118x118.png" crc="521304139" seo="true" ref="index"/>
+    <file name="build135x135.png" crc="3820851490" seo="true" ref="index"/>
+    <file name="if_magnifyingglass_1055031100x100.png" crc="102015073" seo="true" ref="index"/>
+    <file name="if_tools_1054957100x100.png" crc="35363106" seo="true" ref="index"/>
+    <file name="if_money_1055022100x100.png" crc="456798237" seo="true" ref="index"/>
+    <file name="build100x100.png" crc="4006523318" seo="true" ref="index"/>
+    <file name="if_magnifyingglass_105503156x56.png" crc="393319129" seo="true" ref="index"/>
+    <file name="if_tools_105495756x56.png" crc="50891681" seo="true" ref="index"/>
+    <file name="if_money_105502256x56.png" crc="4219852364" seo="true" ref="index"/>
+    <file name="build69x69.png" crc="4153813770" seo="true" ref="index"/>
+    <file name="monteseupc-favicon.ico" crc="3800856562" ref="monteseupc"/>
+    <file name="processadores-favicon.ico" crc="3800856562" ref="processadores"/>
+    <file name="placas-mae-favicon.ico" crc="3800856562" ref="placas-mae"/>
+    <file name="memorias-favicon.ico" crc="3800856562" ref="memorias"/>
+    <file name="discos-rigidos-favicon.ico" crc="3800856562" ref="discos-rigidos"/>
+    <file name="ssds-favicon.ico" crc="3800856562" ref="ssds"/>
+    <file name="placas-video-favicon.ico" crc="3800856562" ref="placas-video"/>
+    <file name="fontes-favicon.ico" crc="3800856562" ref="fontes"/>
+    <file name="gabinetes-favicon.ico" crc="3800856562" ref="gabinetes"/>
+  </folder>
+  <file name="index.html" crc="4020766459" seo="true" mt="1501388845054" redirect="true"/>
+  <file name="monteseupc.html" crc="385352328" seo="true" mt="1501440230884" redirect="true"/>
+  <file name="processadores.html" crc="3766146348" seo="true" mt="1501387369889" redirect="true"/>
+  <file name="placas-mae.html" crc="207594316" seo="true" mt="1501387394690" redirect="true"/>
+  <file name="memorias.html" crc="3910149574" seo="true" mt="1501387403259" redirect="true"/>
+  <file name="discos-rigidos.html" crc="403415872" seo="true" mt="1501387408698" redirect="true"/>
+  <file name="ssds.html" crc="3835696546" seo="true" mt="1501387414529" redirect="true"/>
+  <file name="placas-video.html" crc="59138074" seo="true" mt="1501387424753" redirect="true"/>
+  <file name="fontes.html" crc="373913206" seo="true" mt="1501387434348" redirect="true"/>
+  <file name="gabinetes.html" crc="3982245058" seo="true" mt="1501387442715" redirect="true"/>
+</manifest>
