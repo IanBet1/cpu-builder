@@ -14,3 +14,5 @@ https://sandbox-api.lomadee.com/v2/1495759231647a2155b84/offer/_product/631165?s
 https://sandbox-api.lomadee.com/v2/1495759231647a2155b84/product/_id/631165?sourceId=35795629 //proc i7 7700
 
 https://sandbox-api.lomadee.com//v2/1495759231647a2155b84/store/_all?sourceId=35795629 //stores
+
+//Teste de commit
