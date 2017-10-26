@@ -1,11 +1,10 @@
 <?php
-	include ('componenteProcessador.php');
-	include ('componentePlacaMae.php');
-	include ('componenteArmazenamento.php');
-	include ('componenteFonte.php');
-	include ('componenteGabinete.php');
-	include ('componenteMemoriaRam.php');
-	include ('componentePlacaVideo.php');
+	include ('../model/componentePlacaMae.php');
+	include ('../model/componenteArmazenamento.php');
+	include ('../model/componenteFonte.php');
+	include ('../model/componenteGabinete.php');
+	include ('../model/componenteMemoriaRam.php');
+	include ('../model/componentePlacaVideo.php');
 
 	class leitorJson {
 		private $appToken = "1495759231647a2155b84";
@@ -16,7 +15,7 @@
 		private $resultado;
 
 		public function __construct($categoriaComponente){
-			$this->setCategoriaComponente($categoriaComponente);
+			$this -> setCategoriaComponente($categoriaComponente);
 		}
 
 		//Funções de categoriaComponente
@@ -27,18 +26,28 @@
 			$this -> categoriaComponente = $categoriaComponente;
 		}
 
-		private function buscaProdutosPorCategoria($categoriaComponente){
+		public function buscaProdutosPorCategoria(){
 			//Construção da URL da API.
-			$buscaLink = {$preLinkQAS}{$appToken}."/product/_category/".{$categoriaComponente}{$sourceId};
-
+			$buscaLink = $this -> preLinkQAS.$this -> appToken."/product/_category/".$this -> getCategoriaComponente().$this -> sourceId;
 			//Decodificando o JSON obtido.
-			$json = json_decode($buscaLink, true);
-
-			//Transformar JSON em tabela
-
-			//Retorna tabela
+			$json = json_decode(file_get_contents($buscaLink), true);
+			$this -> resultado = $json;
+			//Retorna array de objetos
 			return $this -> resultado;
 		}
 
+		public function buscaEspecificacaoTecnicaComponente($idComponente){
+			$buscaLink = $this -> preLinkQAS.$this -> appToken."/product/_id/".$idComponente.$this -> sourceId;
+			$json = json_decode(file_get_contents($buscaLink), true);
+			$this -> resultado = $json;
+			return $this -> resultado;
+		}
+
+		public function buscaOfertasDeProdutos($idComponente){
+			$buscaLink = $this -> preLinkQAS.$this -> appToken."/offer/_product/".$idComponente.$this -> sourceId;
+			$json = json_decode(file_get_contents($buscaLink), true);
+			$this -> resultado = $json;
+			return $this -> resultado;
+		}
 	}
 ?>
