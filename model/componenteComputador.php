@@ -1,5 +1,5 @@
 <?php
-	include ("lojaComponente.php");
+	include ("../model/lojaComponente.php");
 
 	abstract class componenteComputador {
 		private $idComponente;
@@ -7,58 +7,63 @@
 		private $nomeComponente;
 		private $valorGeralMinComponente;
 		private $valorGeralMaxComponente;
-		private $lojaComponente // - ->  Criar objeto de loja que possui nome, link e valor
-
-		public function __construct($componenteBasico){
-			$this -> setComponenteBasico($componenteBasico);
-		}
+		private $marcaComponente;
+		private $lojaComponente; // - ->  Criar objeto de loja que possui nome, link e valor
 
 		//Funções de idComponente
-		private function getIdComponente(){
+		public function getIdComponente(){
 			return $this -> idComponente;
 		}
-		private function setIdComponente($idComponente){
+		public function setIdComponente($idComponente){
 			$this -> idComponente = $idComponente;
 		}
 
 		//Funções de componenteBasico
-		private function getComponenteBasico(){
+		public function getComponenteBasico(){
 			return $this -> componenteBasico;
 		}
-		private function setComponenteBasico($componenteBasico){
+		public function setComponenteBasico($componenteBasico){
 			$this -> componenteBasico = $componenteBasico;
 		}
 
 		//Funções de nomeComponente
-		private function getNomeComponente(){
+		public function getNomeComponente(){
 			return $this -> nomeComponente;
 		}
-		private function setNomeComponente($nomeComponente){
+		public function setNomeComponente($nomeComponente){
 			$this -> nomeComponente = $nomeComponente;
 		}
 
 		//Funções de valorGeralMinComponente
-		private function getValorGeralMinComponente(){
+		public function getValorGeralMinComponente(){
 			return $this -> valorGeralMinComponente;
 		}
-		private function setValorGeralMinComponente($valorGeralMinComponente){
+		public function setValorGeralMinComponente($valorGeralMinComponente){
 			$this -> valorGeralMinComponente = $valorGeralMinComponente;
 		}
 
 		//Funções de valorGeralMaxComponente
-		private function getValorGeralMaxComponente(){
+		public function getValorGeralMaxComponente(){
 			return $this -> valorGeralMaxComponente;
 		}
-		private function setValorGeralMaxComponente($valorGeralMaxComponente){
+		public function setValorGeralMaxComponente($valorGeralMaxComponente){
 			$this -> valorGeralMaxComponente = $valorGeralMaxComponente;
 		}
 
 		//Funções de lojaComponente !!!! verificar implementação
-		private function getLojaComponente(){
+		public function getLojaComponente(){
 			return $this -> lojaComponente;
 		}
-		private function setLojaComponente($lojaComponente){
+		public function setLojaComponente($lojaComponente){
 			$this -> lojaComponente = $lojaComponente;
+		}
+
+		//Funções de marcaComponente
+		public function getMarcaComponente(){
+			return $this -> marcaComponente;
+		}
+		public function setMarcaComponente($marcaComponente){
+			$this -> marcaComponente = $marcaComponente;
 		}
 
 	}

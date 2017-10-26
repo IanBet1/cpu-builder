@@ -3,10 +3,10 @@
 		private $potenciaComponente;
 
 		//Funções de potenciaComponente
-		private function getPotenciaComponente(){
+		public function getPotenciaComponente(){
 			return $this -> potenciaComponente;
 		}
-		private function setPotenciaComponente($potenciaComponente){
+		public function setPotenciaComponente($potenciaComponente){
 			$this -> potenciaComponente = $potenciaComponente;
 		}
 

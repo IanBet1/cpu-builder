@@ -4,18 +4,18 @@
 		private $formatoComponente;
 
 		//Funções de socketComponente
-		private function getSocketComponente(){
+		public function getSocketComponente(){
 			return $this -> socketComponente;
 		}
-		private function setSocketComponente($socketComponente){
+		public function setSocketComponente($socketComponente){
 			$this -> socketComponente = $socketComponente;
 		}
 
 		//Funções de imgComponente
-		private function getFormatoComponente(){
+		public function getFormatoComponente(){
 			return $this -> formatoComponente;
 		}
-		private function setFormatoComponente($formatoComponente){
+		public function setFormatoComponente($formatoComponente){
 			$this -> formatoComponente = $formatoComponente;
 		}
 

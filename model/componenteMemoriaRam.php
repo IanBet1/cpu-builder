@@ -4,18 +4,18 @@
 		private $tamanhoComponente;
 
 		//Funções de velocidadeComponente
-		private function getVelocidadeComponente(){
+		public function getVelocidadeComponente(){
 			return $this -> velocidadeComponente;
 		}
-		private function setVelocidadeComponente($velocidadeComponente){
+		public function setVelocidadeComponente($velocidadeComponente){
 			$this -> velocidadeComponente = $velocidadeComponente;
 		}
 
 		//Funções de tamanhoComponente
-		private function getTamanhoComponente(){
+		public function getTamanhoComponente(){
 			return $this -> tamanhoComponente;
 		}
-		private function setTamanhoComponente($tamanhoComponente){
+		public function setTamanhoComponente($tamanhoComponente){
 			$this -> tamanhoComponente = $tamanhoComponente;
 		}
 

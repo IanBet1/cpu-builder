@@ -3,10 +3,10 @@
 		private $capacidadeComponente;
 
 		//Funções de capacidadeComponente
-		private function getCapacidadeComponente(){
+		public function getCapacidadeComponente(){
 			return $this -> capacidadeComponente;
 		}
-		private function setCapacidadeComponente($capacidadeComponente){
+		public function setCapacidadeComponente($capacidadeComponente){
 			$this -> capacidadeComponente = $capacidadeComponente;
 		}
 

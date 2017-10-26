@@ -3,10 +3,10 @@
 		private $formatoComponente;
 
 		//Funções de formatoComponente
-		private function getFormatoComponente(){
+		public function getFormatoComponente(){
 			return $this -> formatoComponente;
 		}
-		private function setFormatoComponente($formatoComponente){
+		public function setFormatoComponente($formatoComponente){
 			$this -> formatoComponente = $formatoComponente;
 		}
 
