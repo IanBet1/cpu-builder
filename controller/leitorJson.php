@@ -1,11 +1,4 @@
 <?php
-	include ('../model/componentePlacaMae.php');
-	include ('../model/componenteArmazenamento.php');
-	include ('../model/componenteFonte.php');
-	include ('../model/componenteGabinete.php');
-	include ('../model/componenteMemoriaRam.php');
-	include ('../model/componentePlacaVideo.php');
-
 	class leitorJson {
 		private $appToken = "1495759231647a2155b84";
 		private $sourceId = "?sourceId=35795629";
