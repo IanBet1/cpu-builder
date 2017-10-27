@@ -1,7 +1,10 @@
 <?php
+	include ('../model/componenteComputador.php');
+
 	class componenteMemoriaRam extends componenteComputador {
 		private $velocidadeComponente;
-		private $tamanhoComponente;
+		private $capacidadeComponente;
+		private $tipoMemComponente;
 
 		//Funções de velocidadeComponente
 		public function getVelocidadeComponente(){
@@ -11,12 +14,20 @@
 			$this -> velocidadeComponente = $velocidadeComponente;
 		}
 
-		//Funções de tamanhoComponente
-		public function getTamanhoComponente(){
-			return $this -> tamanhoComponente;
+		//Funções de capacidadeComponente
+		public function getCapacidadeComponente(){
+			return $this -> capacidadeComponente;
 		}
-		public function setTamanhoComponente($tamanhoComponente){
-			$this -> tamanhoComponente = $tamanhoComponente;
+		public function setCapacidadeComponente($capacidadeComponente){
+			$this -> capacidadeComponente = $capacidadeComponente;
+		}
+
+		//Funções de tipoMemComponente
+		public function getTipoMemComponente(){
+			return $this -> tipoMemComponente;
+		}
+		public function setTipoMemComponente($tipoMemComponente){
+			$this -> tipoMemComponente = $tipoMemComponente;
 		}
 
 	}

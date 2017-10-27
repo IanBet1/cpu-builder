@@ -1,7 +1,11 @@
 <?php
+	include ('../model/componenteComputador.php');
+
 	class componentePlacaMae extends componenteComputador {
 		private $socketComponente;
-		private $formatoComponente;
+		private $memTipComponente;
+		private $memMaxComponente;
+
 
 		//Funções de socketComponente
 		public function getSocketComponente(){
@@ -11,12 +15,20 @@
 			$this -> socketComponente = $socketComponente;
 		}
 
-		//Funções de imgComponente
-		public function getFormatoComponente(){
-			return $this -> formatoComponente;
+		//Funções de memTipComponente
+		public function getMemTipComponente(){
+			return $this -> memTipComponente;
 		}
-		public function setFormatoComponente($formatoComponente){
-			$this -> formatoComponente = $formatoComponente;
+		public function setMemTipComponente($memTipComponente){
+			$this -> memTipComponente = $memTipComponente;
+		}
+
+		//Funções de memMaxComponente
+		public function getMemMaxComponente(){
+			return $this -> memMaxComponente;
+		}
+		public function setMemMaxComponente($memMaxComponente){
+			$this -> memMaxComponente = $memMaxComponente;
 		}
 
 	}
