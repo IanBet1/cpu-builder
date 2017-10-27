@@ -50,7 +50,7 @@
 			$this -> valorGeralMaxComponente = $valorGeralMaxComponente;
 		}
 
-		//Funções de lojaComponente !!!! verificar implementação
+		//Funções de lojaComponente
 		public function getLojaComponente(){
 			return $this -> lojaComponente;
 		}
