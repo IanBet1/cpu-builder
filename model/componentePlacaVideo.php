@@ -1,22 +1,15 @@
 <?php
+	include ('../model/componenteComputador.php');
+
 	class componentePlacaVideo extends componenteComputador {
-		private $chipsetComponente;
-		private $memoriaComponente;
+		private $memComponente;
 
-		//Funções de chipsetComponente
-		public function getChipsetComponente(){
-			return $this -> chipsetComponente;
+		//Funções de memComponente
+		public function getMemComponente(){
+			return $this -> memComponente;
 		}
-		public function setChipsetComponente($chipsetComponente){
-			$this -> chipsetComponente = $chipsetComponente;
-		}
-
-		//Funções de memoriaComponente
-		public function getMemoriaComponente(){
-			return $this -> memoriaComponente;
-		}
-		public function setMemoriaComponente($memoriaComponente){
-			$this -> memoriaComponente = $memoriaComponente;
+		public function setMemComponente($memComponente){
+			$this -> memComponente = $memComponente;
 		}
 
 	}
