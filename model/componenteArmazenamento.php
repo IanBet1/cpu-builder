@@ -1,14 +1,28 @@
 <?php
-	class componenteArmazenamento extends componenteComputador {
-		private $capacidadeComponente;
+    include('../model/componenteComputador.php');
 
-		//Funções de capacidadeComponente
-		public function getCapacidadeComponente(){
-			return $this -> capacidadeComponente;
-		}
-		public function setCapacidadeComponente($capacidadeComponente){
-			$this -> capacidadeComponente = $capacidadeComponente;
-		}
+    class componenteArmazenamento extends componenteComputador
+    {
+        private $tipoArmazenamentoComponente;
+        private $capacidadeComponente;
 
-	}
-?>
+        //Funções de tipoArmazenamentoComponente
+        public function getTipoArmazenamentoComponente()
+        {
+            return $this -> tipoArmazenamentoComponente;
+        }
+        public function setTipoArmazenamentoComponente($tipoArmazenamentoComponente)
+        {
+            $this -> tipoArmazenamentoComponente = $tipoArmazenamentoComponente;
+        }
+
+        //Funções de capacidadeComponente
+        public function getCapacidadeComponente()
+        {
+            return $this -> capacidadeComponente;
+        }
+        public function setCapacidadeComponente($capacidadeComponente)
+        {
+            $this -> capacidadeComponente = $capacidadeComponente;
+        }
+    }

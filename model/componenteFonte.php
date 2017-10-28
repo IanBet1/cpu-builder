@@ -1,14 +1,17 @@
 <?php
-	class componenteFonte extends componenteComputador {
-		private $potenciaComponente;
+    include('../model/componenteComputador.php');
 
-		//Funções de potenciaComponente
-		public function getPotenciaComponente(){
-			return $this -> potenciaComponente;
-		}
-		public function setPotenciaComponente($potenciaComponente){
-			$this -> potenciaComponente = $potenciaComponente;
-		}
+    class componenteFonte extends componenteComputador
+    {
+        private $potenciaComponente;
 
-	}
-?>
+        //Funções de potenciaComponente
+        public function getPotenciaComponente()
+        {
+            return $this -> potenciaComponente;
+        }
+        public function setPotenciaComponente($potenciaComponente)
+        {
+            $this -> potenciaComponente = $potenciaComponente;
+        }
+    }

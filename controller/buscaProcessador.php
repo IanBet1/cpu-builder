@@ -1,59 +1,52 @@
 <?php
-	include ('../controller/buscaCategoria.php');
-	include ('../model/componenteProcessador.php');
-	include ('../controller/leitorJson.php');
+    include('../controller/buscaCategoria.php');
+    include('../model/componenteProcessador.php');
+    include('../controller/leitorJson.php');
+    include('../controller/criaTabela.php');
 
-	//Buscar Categoria no Banco
-	$idCategoria = new buscaCategoria('processador');
+    $idCategoria = new buscaCategoria('processador');
+    $leitorJson = new leitorJson($idCategoria -> retornaCategoria());
+    $retorno = $leitorJson -> buscaProdutosPorCategoria();
 
-	//Enviar Categoria para o Leitor JSON
-	$leitorJson = new leitorJson($idCategoria -> retornaCategoria());
+    $processadores;
+    $ofertas;
 
-	//Receber retorno do leitor
-	$retorno = $leitorJson -> buscaProdutosPorCategoria();
+    if ($retorno['requestInfo']['status'] != 'NOT_FOUND') {
+        foreach ($retorno['products'] as $product) {
+            $processador = new componenteProcessador();
+            $processador -> setIdComponente($product['id']);
+            $processador -> setNomeComponente($product['name']);
+            $processador -> setValorGeralMinComponente($product['priceMin']);
+            $processador -> setValorGeralMaxComponente($product['priceMax']);
+            $processador -> setComponenteBasico($product['thumbnail']['url']);
 
-	//Definindo propriedades básicas do componente
-	$processadores;
-	$ofertas;
+            $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($processador -> getIdComponente());
+            foreach ($retornoEspecifico['products'] as $product) {
+                $processador -> setVelocidadeComponente($product['technicalSpecification']['Velocidade']);
+                $processador -> setMarcaComponente($product['technicalSpecification']['Marca']);
+            }
+            $processador -> setNucleoComponente(0);
 
-	foreach ($retorno['products'] as $product)
-	{
-		//Definindo propriedades no objeto
-		$processador = new componenteProcessador();
-		$processador -> setIdComponente($product['id']);
-		$processador -> setNomeComponente($product['name']);
-		$processador -> setValorGeralMinComponente($product['priceMin']);
-		$processador -> setValorGeralMaxComponente($product['priceMax']);
-		$processador -> setComponenteBasico($product['thumbnail']['url']);
+            $pos = strpos($processador -> getNomeComponente(), $processador -> getVelocidadeComponente());
+            $processador -> setNomeComponente(substr($processador -> getNomeComponente(), 0, $pos));
 
-		//pegar especificações tecnicas
-		$retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($processador -> getIdComponente());
-		foreach ($retornoEspecifico['products'] as $product)
-		{
-			$processador -> setVelocidadeComponente($product['technicalSpecification']['Velocidade']);
-			$processador -> setMarcaComponente($product['technicalSpecification']['Marca']);
-		}
-		$processador -> setNucleoComponente(0);
+            $retornoOferta = $leitorJson -> buscaOfertasDeProdutos($processador -> getIdComponente());
+            foreach ($retornoOferta['offers'] as $offer) {
+                $oferta = new lojaComponente();
+                $oferta -> setLogoLoja($offer['store']['thumbnail']);
+                $oferta -> setNomeLoja($offer['store']['name']);
+                $oferta -> setValorLoja($offer['price']);
+                $oferta -> setLinkLoja($offer['link']);
 
-		//pegar ofertas do componente
-		$retornoOferta = $leitorJson -> buscaOfertasDeProdutos($processador -> getIdComponente());
-		foreach ($retornoOferta['offers'] as $offer)
-		{
-			$oferta = new lojaComponente();
-			$oferta -> setLogoLoja($offer['store']['thumbnail']);
-			$oferta -> setNomeLoja($offer['store']['name']);
-			$oferta -> setValorLoja($offer['price']);
-			$oferta -> setLinkLoja($offer['link']);
+                $ofertas[] = $oferta;
+            }
+            $processador -> setLojaComponente($ofertas);
+            $ofertas = null;
 
-			$ofertas[] = $oferta;
-		}
-		$processador -> setLojaComponente($ofertas);
-		$ofertas = null;
-
-		//Adicionando objeto ao array
-		$processadores[] = $processador;
-	}
-	var_dump($processadores);
-
-	//Montar Tabela com jQuery
-?>
+            $processadores[] = $processador;
+        }
+        $tabela = new criaTabela('processador', $processadores);
+        echo $tabela -> retornaTabela();
+    } else {
+        echo "NOT FOUND";
+    }
