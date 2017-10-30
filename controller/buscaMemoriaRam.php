@@ -11,7 +11,7 @@
     $memoriasram;
     $ofertas;
 
-    if ($retorno['requestInfo']['status'] != 'NOT_FOUND') {
+    if ($retorno['requestInfo']['status'] == 'OK') {
         foreach ($retorno['products'] as $product) {
             $memoriaram = new componenteMemoriaRam();
             $memoriaram -> setNomeComponente($product['name']);

@@ -11,7 +11,7 @@
     $processadores;
     $ofertas;
 
-    if ($retorno['requestInfo']['status'] != 'NOT_FOUND') {
+    if ($retorno['requestInfo']['status'] == 'OK') {
         foreach ($retorno['products'] as $product) {
             $processador = new componenteProcessador();
             $processador -> setIdComponente($product['id']);

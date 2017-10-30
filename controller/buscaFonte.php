@@ -11,7 +11,7 @@
     $fontes;
     $ofertas;
 
-    if ($retorno['requestInfo']['status'] != 'NOT_FOUND') {
+    if ($retorno['requestInfo']['status'] == 'OK') {
         foreach ($retorno['products'] as $product) {
             $fonte = new componenteFonte();
             $fonte -> setIdComponente($product['id']);

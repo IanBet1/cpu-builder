@@ -25,28 +25,37 @@
 
         public function buscaProdutosPorCategoria()
         {
-            //Construção da URL da API.
+          try {
             $buscaLink = $this -> preLinkQAS.$this -> appToken."/product/_category/".$this -> getCategoriaComponente().$this -> sourceId;
-            //Decodificando o JSON obtido.
             $json = json_decode(file_get_contents($buscaLink), true);
             $this -> resultado = $json;
-            //Retorna array de objetos
             return $this -> resultado;
+          } catch (Exception $e) {
+            return $e;
+          }
         }
 
         public function buscaEspecificacaoTecnicaComponente($idComponente)
         {
+          try {
             $buscaLink = $this -> preLinkQAS.$this -> appToken."/product/_id/".$idComponente.$this -> sourceId;
             $json = json_decode(file_get_contents($buscaLink), true);
             $this -> resultado = $json;
             return $this -> resultado;
+          } catch (Exception $e) {
+            return $e;
+          }
         }
 
         public function buscaOfertasDeProdutos($idComponente)
         {
+          try {
             $buscaLink = $this -> preLinkQAS.$this -> appToken."/offer/_product/".$idComponente.$this -> sourceId;
             $json = json_decode(file_get_contents($buscaLink), true);
             $this -> resultado = $json;
             return $this -> resultado;
+          } catch (Exception $e) {
+            return $e;
+          }
         }
     }
