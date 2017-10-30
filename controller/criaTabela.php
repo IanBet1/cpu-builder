@@ -66,7 +66,7 @@
             "</td>";
                   $retorno .= "
             <td>R$ ".
-              $componente -> getValorGeralMinComponente().
+              number_format($componente -> getValorGeralMinComponente(), 2, ',', '.').
             "</td>";
                   $retorno .= "
             <td>
@@ -104,7 +104,7 @@
             "</td>";
                   $retorno .= "
             <td>R$ ".
-              $componente -> getValorGeralMinComponente().
+              number_format($componente -> getValorGeralMinComponente(), 2, ',', '.').
             "</td>";
                   $retorno .= "
             <td>
@@ -147,7 +147,7 @@
             "</td>";
                   $retorno .= "
             <td>R$ ".
-              $componente -> getValorGeralMinComponente().
+              number_format($componente -> getValorGeralMinComponente(), 2, ',', '.').
             "</td>";
                   $retorno .= "
             <td>
@@ -190,7 +190,7 @@
             "</td>";
                   $retorno .= "
             <td>R$ ".
-              $componente -> getValorGeralMinComponente().
+              number_format($componente -> getValorGeralMinComponente(), 2, ',', '.').
             "</td>";
                   $retorno .= "
             <td>
@@ -228,7 +228,7 @@
             "</td>";
                   $retorno .= "
             <td>R$ ".
-              $componente -> getValorGeralMinComponente().
+              number_format($componente -> getValorGeralMinComponente(), 2, ',', '.').
             "</td>";
                   $retorno .= "
             <td>
@@ -261,7 +261,7 @@
             "</td>";
                   $retorno .= "
             <td>R$ ".
-              $componente -> getValorGeralMinComponente().
+              number_format($componente -> getValorGeralMinComponente(), 2, ',', '.').
             "</td>";
                   $retorno .= "
             <td>
@@ -294,7 +294,7 @@
             "</td>";
                   $retorno .= "
             <td>R$ ".
-              $componente -> getValorGeralMinComponente().
+              number_format($componente -> getValorGeralMinComponente(), 2, ',', '.').
             "</td>";
                   $retorno .= "
             <td>
