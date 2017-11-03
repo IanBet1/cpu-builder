@@ -28,7 +28,7 @@
         {
             return $this -> imgComponente;
         }
-        public function setComponenteBasico($imgComponente)
+        public function setImgComponente($imgComponente)
         {
             $this -> imgComponente = $imgComponente;
         }
@@ -38,7 +38,7 @@
         {
             return $this -> descricaoComponente;
         }
-        public function setComponenteBasico($descricaoComponente)
+        public function setDescricaoComponente($descricaoComponente)
         {
             $this -> descricaoComponente = $descricaoComponente;
         }
@@ -48,7 +48,7 @@
         {
             return $this -> valorComponente;
         }
-        public function setComponenteBasico($valorComponente)
+        public function setValorComponente($valorComponente)
         {
             $this -> valorComponente = $valorComponente;
         }
@@ -58,7 +58,7 @@
         {
             return $this -> nomeLoja;
         }
-        public function setComponenteBasico($nomeLoja)
+        public function setNomeLoja($nomeLoja)
         {
             $this -> nomeLoja = $nomeLoja;
         }
@@ -68,8 +68,9 @@
         {
             return $this -> linkOferta;
         }
-        public function setComponenteBasico($linkOferta)
+        public function setLinkOferta($linkOferta)
         {
             $this -> linkOferta = $linkOferta;
         }
     }
+?>
