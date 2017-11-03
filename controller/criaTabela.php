@@ -34,23 +34,23 @@
 
       public function retornaTabela()
       {
-          $retorno = '<table>';
+          $retorno = "<table id='componenteTabela'>";
 
           if ($this -> getComponenteBasico() == 'processador') {
               $retorno .=
-          '<tr>
+          '<thead><tr>
             <th></th>
             <th>Processador</th>
             <th>Velocidade</th>
             <th>Núcleos</th>
             <th>Valor</th>
             <th></th>
-          </tr>';
+          </tr></thead><tbody>';
 
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
-              <img src='".$componente -> getComponenteBasico()."' height='32' width='32'
+              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'
             </td>";
                   $retorno .= "
             <td>".
@@ -70,25 +70,25 @@
             "</td>";
                   $retorno .= "
             <td>
-              <button type='button'>Escolher</button>
+              <button class='fake-btn' type='button'>Escolher</button>
             </td>
-            </tr>";
+            </tr></tbody>";
               }
           } elseif ($this -> getComponenteBasico() == 'placamae') {
               $retorno .=
-          '<tr>
+          '<thead><tr>
             <th></th>
             <th>Placa-Mãe</th>
             <th>Soquete</th>
             <th>RAM Máxima</th>
             <th>Valor</th>
             <th></th>
-          </tr>';
+          </tr></thead><tbody>';
 
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
-              <img src='".$componente -> getComponenteBasico()."' height='32' width='32'
+              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'
             </td>";
                   $retorno .= "
             <td>".
@@ -108,13 +108,13 @@
             "</td>";
                   $retorno .= "
             <td>
-              <button type='button'>Escolher</button>
+              <button class='fake-btn' type='button'>Escolher</button>
             </td>
-            </tr>";
+            </tr></tbody>";
               }
           } elseif ($this -> getComponenteBasico() == 'memoriaram') {
               $retorno .=
-          '<tr>
+          '<thead><tr>
             <th></th>
             <th>Memória RAM</th>
             <th>Velocidade</th>
@@ -122,12 +122,12 @@
             <th>Tipo</th>
             <th>Valor</th>
             <th></th>
-          </tr>';
+          </tr></thead><tbody>';
 
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
-              <img src='".$componente -> getComponenteBasico()."' height='32' width='32'
+              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'
             </td>";
                   $retorno .= "
             <td>".
@@ -151,13 +151,13 @@
             "</td>";
                   $retorno .= "
             <td>
-              <button type='button'>Escolher</button>
+              <button class='fake-btn' type='button'>Escolher</button>
             </td>
-            </tr>";
+            </tr></tbody>";
               }
           } elseif ($this -> getComponenteBasico() == 'hd/ssd') {
               $retorno .=
-          '<tr>
+          '<thead><tr>
             <th></th>
             <th>Armazenamento</th>
             <th>Marca</th>
@@ -165,12 +165,12 @@
             <th>Capacidade</th>
             <th>Valor</th>
             <th></th>
-          </tr>';
+          </tr></thead><tbody>';
 
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
-              <img src='".$componente -> getComponenteBasico()."' height='32' width='32'
+              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'
             </td>";
                   $retorno .= "
             <td>".
@@ -194,25 +194,25 @@
             "</td>";
                   $retorno .= "
             <td>
-              <button type='button'>Escolher</button>
+              <button class='fake-btn' type='button'>Escolher</button>
             </td>
-            </tr>";
+            </tr></tbody>";
               }
           } elseif ($this -> getComponenteBasico() == 'placavideo') {
               $retorno .=
-          '<tr>
+          '<thead><tr>
             <th></th>
             <th>Placa de Vídeo</th>
             <th>Marca</th>
             <th>Memória</th>
             <th>Valor</th>
             <th></th>
-          </tr>';
+          </tr></thead><tbody>';
 
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
-              <img src='".$componente -> getComponenteBasico()."' height='32' width='32'
+              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'
             </td>";
                   $retorno .= "
             <td>".
@@ -232,24 +232,24 @@
             "</td>";
                   $retorno .= "
             <td>
-              <button type='button'>Escolher</button>
+              <button class='fake-btn' type='button'>Escolher</button>
             </td>
-            </tr>";
+            </tr></tbody>";
               }
           } elseif ($this -> getComponenteBasico() == 'fonte') {
               $retorno .=
-          '<tr>
+          '<thead><tr>
             <th></th>
             <th>Fonte</th>
             <th>Potência</th>
             <th>Valor</th>
             <th></th>
-          </tr>';
+          </tr></thead><tbody>';
 
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
-              <img src='".$componente -> getComponenteBasico()."' height='32' width='32'
+              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'
             </td>";
                   $retorno .= "
             <td>".
@@ -265,24 +265,24 @@
             "</td>";
                   $retorno .= "
             <td>
-              <button type='button'>Escolher</button>
+              <button class='fake-btn' type='button'>Escolher</button>
             </td>
-            </tr>";
+            </tr></tbody>";
               }
           } elseif ($this -> getComponenteBasico() == 'gabinete') {
               $retorno .=
-          '<tr>
+          '<thead><tr>
             <th></th>
             <th>Gabinete</th>
             <th>Formato</th>
             <th>Valor</th>
             <th></th>
-          </tr>';
+          </tr></thead><tbody>';
 
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
-              <img src='".$componente -> getComponenteBasico()."' height='32' width='32'
+              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'
             </td>";
                   $retorno .= "
             <td>".
@@ -298,9 +298,9 @@
             "</td>";
                   $retorno .= "
             <td>
-              <button type='button'>Escolher</button>
+              <button class='fake-btn' type='button'>Escolher</button>
             </td>
-            </tr>";
+            </tr></tbody>";
               }
           }
           $retorno .= '</table>';
@@ -308,3 +308,4 @@
           return $retorno;
       }
   }
+?>
