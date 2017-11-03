@@ -38,3 +38,4 @@
             $this -> memMaxComponente = $memMaxComponente;
         }
     }
+?>

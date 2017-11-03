@@ -15,3 +15,4 @@
             $this -> potenciaComponente = $potenciaComponente;
         }
     }
+?>

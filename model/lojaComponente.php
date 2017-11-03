@@ -46,3 +46,4 @@
             $this -> linkLoja = $linkLoja;
         }
     }
+?>

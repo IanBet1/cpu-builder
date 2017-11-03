@@ -55,5 +55,7 @@
         $tabela = new criaTabela('hd/ssd', $armazenamentos);
         echo $tabela -> retornaTabela();
     } else {
-        echo "NOT FOUND";
+      echo "<br><br><h1 class='not_found_sorry'>Lamentamos!</h1><br><br>
+      <h1 class='not_found'>Não existem produtos para o componente. :'(</h1>";
     }
+?>

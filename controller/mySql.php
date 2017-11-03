@@ -101,3 +101,4 @@ class mySql extends dbConfig
         return mysqli_query($this -> connectionString, $query);
     }
 }
+?>

@@ -26,3 +26,4 @@
             $this -> nucleoComponente = $nucleoComponente;
         }
     }
+?>

@@ -37,3 +37,4 @@
             $this -> tipoMemComponente = $tipoMemComponente;
         }
     }
+?>
