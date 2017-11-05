@@ -45,28 +45,36 @@
     document.write('\x3Cscript src="' + (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//webfonts.creativecloud.com/open-sans:n7,n3,n4:default.js" type="text/javascript">\x3C/script>');
   </script>
   <script type="text/javascript">
-    $(document).ready(
-      function() {
-          $('#loading').show();
-          $('#componente').hide();
-          $(window).load(function(){
-            $.post(
-              "../controller/buscaMemoriaRam.php"
-            ).done(function(data){
-              $('#loading').hide();
-              $('#componente').html(data);
-              $('#componenteTabela').DataTable({
-                searching: false,
-                ordering: false,
-                "bLengthChange": false,
-                responsive: true,
-              });
-              $('#componente').show();
-            }).fail(function(){
-              alert("Erro no carregamento.");
+  $(document).ready(
+    function() {
+        $('#loading').show();
+        $('#componente').hide();
+        $(window).load(function(){
+          $.post(
+            "../controller/buscaMemoriaRam.php"
+          ).done(function(data){
+            $('#loading').hide();
+            $('#componente').html(data);
+            $('#componenteTabela').DataTable({
+              searching: false,
+              "bLengthChange": false,
+              ordering: false,
+              responsive: true,
             });
+            $('#componente').show();
+            $('.fake-btn').click(function(){
+              $.ajax({
+                type: "POST",
+                url: "../controller/addCompSession.php"
+              }).done(function(msg){
+                alert("Teste de Botão: " + msg);
+              });
+            });
+          }).fail(function(){
+            alert("Erro no carregamento.");
           });
-    });
+        });
+  });
   </script>
 </head>
 
