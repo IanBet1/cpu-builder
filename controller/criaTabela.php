@@ -70,9 +70,9 @@
             "</td>";
                   $retorno .= "
             <td>
-              <button class='fake-btn' type='button'>Escolher</button>
+              <input type='button' class='fake-btn' value='Escolher'>
             </td>
-            </tr></tbody>";
+            </tr>";
               }
           } elseif ($this -> getComponenteBasico() == 'placamae') {
               $retorno .=
@@ -108,9 +108,9 @@
             "</td>";
                   $retorno .= "
             <td>
-              <button class='fake-btn' type='button'>Escolher</button>
+              <input type='button' class='fake-btn' value='Escolher'>
             </td>
-            </tr></tbody>";
+            </tr>";
               }
           } elseif ($this -> getComponenteBasico() == 'memoriaram') {
               $retorno .=
@@ -151,9 +151,9 @@
             "</td>";
                   $retorno .= "
             <td>
-              <button class='fake-btn' type='button'>Escolher</button>
+              <input type='button' class='fake-btn' value='Escolher'>
             </td>
-            </tr></tbody>";
+            </tr>";
               }
           } elseif ($this -> getComponenteBasico() == 'hd/ssd') {
               $retorno .=
@@ -194,9 +194,9 @@
             "</td>";
                   $retorno .= "
             <td>
-              <button class='fake-btn' type='button'>Escolher</button>
+              <input type='button' class='fake-btn' value='Escolher'>
             </td>
-            </tr></tbody>";
+            </tr>";
               }
           } elseif ($this -> getComponenteBasico() == 'placavideo') {
               $retorno .=
@@ -232,9 +232,9 @@
             "</td>";
                   $retorno .= "
             <td>
-              <button class='fake-btn' type='button'>Escolher</button>
+              <input type='button' class='fake-btn' value='Escolher'>
             </td>
-            </tr></tbody>";
+            </tr>";
               }
           } elseif ($this -> getComponenteBasico() == 'fonte') {
               $retorno .=
@@ -265,9 +265,9 @@
             "</td>";
                   $retorno .= "
             <td>
-              <button class='fake-btn' type='button'>Escolher</button>
+              <input type='button' class='fake-btn' value='Escolher'>
             </td>
-            </tr></tbody>";
+            </tr>";
               }
           } elseif ($this -> getComponenteBasico() == 'gabinete') {
               $retorno .=
@@ -298,12 +298,12 @@
             "</td>";
                   $retorno .= "
             <td>
-              <button class='fake-btn' type='button'>Escolher</button>
+              <input type='button' class='fake-btn' value='Escolher'>
             </td>
-            </tr></tbody>";
+            </tr>";
               }
           }
-          $retorno .= '</table>';
+          $retorno .= '</tbody></table>';
 
           return $retorno;
       }
