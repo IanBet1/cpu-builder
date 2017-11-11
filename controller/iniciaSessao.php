@@ -4,11 +4,11 @@
   if (session_status() == PHP_SESSION_NONE) {
     session_start();
     $_SESSION['componente'] = "";
-    $retorno = "<table class='tg' style='undefined;table-layout: fixed; width: 740px'>
+    $retorno = "<table class='tg' style='undefined;table-layout: fixed; width: 770px'>
       <colgroup>
         <col style='width: 130px'>
         <col style='width: 70px'>
-        <col style='width: 200px'>
+        <col style='width: 230px'>
         <col style='width: 140px'>
         <col style='width: 100px'>
         <col style='width: 70px'>
@@ -200,7 +200,14 @@
           <td class='tg-yw4l'></td>
         </tr>";
       }
-      $retorno .= "</table>";
+      $retorno .= "<tr>
+        <td class='tg-yw4l'></td>
+        <td class='tg-yw4l'></td>
+        <td class='tg-yw4l'></td>
+        <td class='tg-yw4l'></td>
+        <td class='tg-yw4l'></td>
+        <td class='tg-value'><input type='button' class='fake-btn-value' value='R$ 0,00'></td>
+      </tr></table>";
       echo $retorno;
     }
     else{
@@ -275,8 +282,14 @@
           <td class='tg-yw4l'></td>
           <td class='tg-yw4l'></td>
         </tr>
-      </table><br><br>
-      <input type='button' class='fake-btn-value' value='R$ 0,00'>";
+        <tr>
+          <td class='tg-yw4l'></td>
+          <td class='tg-yw4l'></td>
+          <td class='tg-yw4l'></td>
+          <td class='tg-yw4l'></td>
+          <td class='tg-yw4l'><input type='button' class='fake-btn-value' value='R$ 0,00'></td>
+        </tr>
+      </table><br><br>";
     }
   }
 ?>
