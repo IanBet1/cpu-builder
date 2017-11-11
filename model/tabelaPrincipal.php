@@ -1,27 +1,11 @@
 <?php
     class tabelaPrincipal
     {
-        private $componenteBasico;
         private $imgComponente;
         private $descricaoComponente;
         private $valorComponente;
         private $nomeLoja;
         private $linkOferta;
-
-        public function __construct($componenteBasico)
-        {
-            $this  ->  setComponenteBasico($componenteBasico);
-        }
-
-        //Funções de componenteBasico
-        public function getComponenteBasico()
-        {
-            return $this  ->  componenteBasico;
-        }
-        public function setComponenteBasico($componenteBasico)
-        {
-            $this -> componenteBasico = $componenteBasico;
-        }
 
         //Funções de imgComponente
         public function getImgComponente()

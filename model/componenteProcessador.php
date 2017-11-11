@@ -4,7 +4,6 @@
     class componenteProcessador extends componenteComputador
     {
         private $velocidadeComponente;
-        private $nucleoComponente;
 
         //Funções de velocidadeComponente
         public function getVelocidadeComponente()
@@ -16,14 +15,5 @@
             $this -> velocidadeComponente = $velocidadeComponente;
         }
 
-        //Funções de nucleoComponente
-        public function getNucleoComponente()
-        {
-            return $this -> nucleoComponente;
-        }
-        public function setNucleoComponente($nucleoComponente)
-        {
-            $this -> nucleoComponente = $nucleoComponente;
-        }
     }
 ?>
