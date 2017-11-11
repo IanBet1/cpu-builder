@@ -57,12 +57,12 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
               responsive: true,
             });
             $('#componente').show();
-            $('.fake-btn').click(function(){
-              $.ajax({
-                type: "POST",
-                url: "../controller/addCompSession.php"
-              }).done(function(msg){
-                alert("Teste de Botão: " + msg);
+            $("input[type=button]").click(function(){
+              $.post(
+                '../controller/addCompSession.php',
+                {componente: $(this).data("componente"), idComponente: $(this).data("id-componente")},
+                function () {
+                  window.location.replace("monteseupc.html");
               });
             });
           }).fail(function(){
