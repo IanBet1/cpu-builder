@@ -42,7 +42,6 @@
             <th></th>
             <th>Processador</th>
             <th>Velocidade</th>
-            <th>Núcleos</th>
             <th>Valor</th>
             <th></th>
           </tr></thead><tbody>';
@@ -50,7 +49,7 @@
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
-              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'
+              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'>
             </td>";
                   $retorno .= "
             <td>".
@@ -61,16 +60,12 @@
               $componente -> getVelocidadeComponente().
             "</td>";
                   $retorno .= "
-            <td>".
-              $componente -> getNucleoComponente().
-            "</td>";
-                  $retorno .= "
             <td>R$ ".
               number_format($componente -> getValorGeralMinComponente(), 2, ',', '.').
             "</td>";
                   $retorno .= "
             <td>
-              <input type='button' class='fake-btn' value='Escolher'>
+              <input type='button' class='fake-btn' data-componente='processador' data-id-componente='".$componente -> getIdComponente()."' value='Escolher'>
             </td>
             </tr>";
               }
@@ -88,7 +83,7 @@
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
-              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'
+              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'>
             </td>";
                   $retorno .= "
             <td>".
@@ -108,7 +103,7 @@
             "</td>";
                   $retorno .= "
             <td>
-              <input type='button' class='fake-btn' value='Escolher'>
+              <input type='button' class='fake-btn' data-componente='placamae' data-id-componente='".$componente -> getIdComponente()."' value='Escolher'>
             </td>
             </tr>";
               }
@@ -127,7 +122,7 @@
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
-              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'
+              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'>
             </td>";
                   $retorno .= "
             <td>".
@@ -151,7 +146,7 @@
             "</td>";
                   $retorno .= "
             <td>
-              <input type='button' class='fake-btn' value='Escolher'>
+              <input type='button' class='fake-btn' data-componente='memoriaram' data-id-componente='".$componente -> getIdComponente()."' value='Escolher'>
             </td>
             </tr>";
               }
@@ -170,7 +165,7 @@
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
-              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'
+              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'>
             </td>";
                   $retorno .= "
             <td>".
@@ -194,7 +189,7 @@
             "</td>";
                   $retorno .= "
             <td>
-              <input type='button' class='fake-btn' value='Escolher'>
+              <input type='button' class='fake-btn' data-componente='hd/ssd' data-id-componente='".$componente -> getIdComponente()."' value='Escolher'>
             </td>
             </tr>";
               }
@@ -212,7 +207,7 @@
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
-              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'
+              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'>
             </td>";
                   $retorno .= "
             <td>".
@@ -232,7 +227,7 @@
             "</td>";
                   $retorno .= "
             <td>
-              <input type='button' class='fake-btn' value='Escolher'>
+              <input type='button' class='fake-btn' data-componente='placavideo' data-id-componente='".$componente -> getIdComponente()."' value='Escolher'>
             </td>
             </tr>";
               }
@@ -249,7 +244,7 @@
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
-              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'
+              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'>
             </td>";
                   $retorno .= "
             <td>".
@@ -265,7 +260,7 @@
             "</td>";
                   $retorno .= "
             <td>
-              <input type='button' class='fake-btn' value='Escolher'>
+              <input type='button' class='fake-btn' data-componente='fonte' data-id-componente='".$componente -> getIdComponente()."' value='Escolher'>
             </td>
             </tr>";
               }
@@ -282,7 +277,7 @@
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
-              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'
+              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'>
             </td>";
                   $retorno .= "
             <td>".
@@ -298,7 +293,7 @@
             "</td>";
                   $retorno .= "
             <td>
-              <input type='button' class='fake-btn' value='Escolher'>
+              <input type='button' class='fake-btn' data-componente='gabinete' data-id-componente='".$componente -> getIdComponente()."' value='Escolher'>
             </td>
             </tr>";
               }
@@ -308,4 +303,3 @@
           return $retorno;
       }
   }
-?>
