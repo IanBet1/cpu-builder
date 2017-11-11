@@ -27,7 +27,7 @@
                 $placamae -> setMemMaxComponente($product['technicalSpecification']['Memória Máxima Suportável']);
             }
 
-            $retornoOferta = $leitorJson -> buscaOfertasDeProdutos($placamae -> getIdComponente());
+            /*$retornoOferta = $leitorJson -> buscaOfertasDeProdutos($placamae -> getIdComponente());
             foreach ($retornoOferta['offers'] as $offer) {
                 $oferta = new lojaComponente();
                 $oferta -> setLogoLoja($offer['store']['thumbnail']);
@@ -38,7 +38,7 @@
                 $ofertas[] = $oferta;
             }
             $placamae -> setLojaComponente($ofertas);
-            $ofertas = null;
+            $ofertas = null;*/
 
             $placasmae[] = $placamae;
         }

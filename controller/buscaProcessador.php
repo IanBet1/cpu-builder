@@ -25,12 +25,11 @@
                 $processador -> setVelocidadeComponente($product['technicalSpecification']['Velocidade']);
                 $processador -> setMarcaComponente($product['technicalSpecification']['Marca']);
             }
-            $processador -> setNucleoComponente(0);
 
             $pos = strpos($processador -> getNomeComponente(), $processador -> getVelocidadeComponente());
             $processador -> setNomeComponente(substr($processador -> getNomeComponente(), 0, $pos));
 
-            $retornoOferta = $leitorJson -> buscaOfertasDeProdutos($processador -> getIdComponente());
+            /*$retornoOferta = $leitorJson -> buscaOfertasDeProdutos($processador -> getIdComponente());
             foreach ($retornoOferta['offers'] as $offer) {
                 $oferta = new lojaComponente();
                 $oferta -> setLogoLoja($offer['store']['thumbnail']);
@@ -41,7 +40,7 @@
                 $ofertas[] = $oferta;
             }
             $processador -> setLojaComponente($ofertas);
-            $ofertas = null;
+            $ofertas = null;*/
 
             $processadores[] = $processador;
         }

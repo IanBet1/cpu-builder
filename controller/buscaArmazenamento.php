@@ -36,7 +36,7 @@
                 $pos = strlen($armazenamento -> getMarcaComponente());
                 $armazenamento -> setNomeComponente(substr($armazenamento -> getNomeComponente(), $pos));
 
-                $retornoOferta = $leitorJson -> buscaOfertasDeProdutos($armazenamento -> getIdComponente());
+                /*$retornoOferta = $leitorJson -> buscaOfertasDeProdutos($armazenamento -> getIdComponente());
                 foreach ($retornoOferta['offers'] as $offer) {
                     $oferta = new lojaComponente();
                     $oferta -> setLogoLoja($offer['store']['thumbnail']);
@@ -47,7 +47,7 @@
                     $ofertas[] = $oferta;
                 }
                 $armazenamento -> setLojaComponente($ofertas);
-                $ofertas = null;
+                $ofertas = null;*/
 
                 $armazenamentos[] = $armazenamento;
             }

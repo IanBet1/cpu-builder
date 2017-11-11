@@ -31,7 +31,7 @@
             $pos = strlen($placavideo -> getMarcaComponente());
             $placavideo -> setNomeComponente(substr($placavideo -> getNomeComponente(), $pos));
 
-            $retornoOferta = $leitorJson -> buscaOfertasDeProdutos($placavideo -> getIdComponente());
+            /*$retornoOferta = $leitorJson -> buscaOfertasDeProdutos($placavideo -> getIdComponente());
             foreach ($retornoOferta['offers'] as $offer) {
                 $oferta = new lojaComponente();
                 $oferta -> setLogoLoja($offer['store']['thumbnail']);
@@ -42,7 +42,7 @@
                 $ofertas[] = $oferta;
             }
             $placavideo -> setLojaComponente($ofertas);
-            $ofertas = null;
+            $ofertas = null;*/
 
             $placasvideo[] = $placavideo;
         }

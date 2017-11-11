@@ -28,7 +28,7 @@
                 $fonte -> setMemMaxComponente($product['technicalSpecification']['Memória Máxima Suportável']);*/
             }
 
-            $retornoOferta = $leitorJson -> buscaOfertasDeProdutos($fonte -> getIdComponente());
+            /*$retornoOferta = $leitorJson -> buscaOfertasDeProdutos($fonte -> getIdComponente());
             foreach ($retornoOferta['offers'] as $offer) {
                 $oferta = new lojaComponente();
                 $oferta -> setLogoLoja($offer['store']['thumbnail']);
@@ -39,7 +39,7 @@
                 $ofertas[] = $oferta;
             }
             $fonte -> setLojaComponente($ofertas);
-            $ofertas = null;
+            $ofertas = null;*/
 
             $fontes[] = $fonte;
         }

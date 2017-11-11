@@ -40,7 +40,7 @@
                     $pos = strpos($memoriaram -> getNomeComponente(), $memoriaram -> getCapacidadeComponente());
                     $memoriaram -> setNomeComponente(substr($memoriaram -> getNomeComponente(), 0, $pos));
 
-                    $retornoOferta = $leitorJson -> buscaOfertasDeProdutos($memoriaram -> getIdComponente());
+                    /*$retornoOferta = $leitorJson -> buscaOfertasDeProdutos($memoriaram -> getIdComponente());
                     foreach ($retornoOferta['offers'] as $offer) {
                         $oferta = new lojaComponente();
                         $oferta -> setLogoLoja($offer['store']['thumbnail']);
@@ -51,7 +51,7 @@
                         $ofertas[] = $oferta;
                     }
                     $memoriaram -> setLojaComponente($ofertas);
-                    $ofertas = null;
+                    $ofertas = null;*/
 
                     $memoriasram[] = $memoriaram;
                 }
