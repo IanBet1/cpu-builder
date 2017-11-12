@@ -7,24 +7,42 @@
         private $retorno;
         private $meubanco;
 
-        public function __construct($componenteBasico)
-        {
-            $this -> componenteBasico = $componenteBasico;
+        public function __construct($componenteBasico) {
+            $this -> setComponenteBasico($componenteBasico);
         }
 
-        public function retornaCategoria()
-        {
+        public function setComponenteBasico($componenteBasico) {
+          $this -> componenteBasico = $componenteBasico;
+        }
+
+        public function retornaCategoria() {
             $meubanco = new mySql();
             $meubanco -> dbConnect();
             $retorno = $meubanco->selectWhere('categoriacomponente', 'nomeComponente', '=', $this -> componenteBasico, 'char');
             if (mysqli_num_rows($retorno) > 0) {
                 while ($linha = mysqli_fetch_assoc($retorno)) {
+                    $meubanco -> dbDisconnect();
                     return $linha["idCategoria"];
                 }
             } else {
+                $meubanco -> dbDisconnect();
                 return 0;
             }
-            $meubanco -> dbDisconnect();
+        }
+
+        public function retornaSocket() {
+            $meubanco = new mySql();
+            $meubanco -> dbConnect();
+            $retorno = $meubanco->selectWhere('socketcomponente', 'nomeSocket', '=', $this -> componenteBasico, 'char');
+            if (mysqli_num_rows($retorno) > 0) {
+                while ($linha = mysqli_fetch_assoc($retorno)) {
+                    $meubanco -> dbDisconnect();
+                    return $linha["marcaComponente"];
+                }
+            } else {
+                $meubanco -> dbDisconnect();
+                return 0;
+            }
         }
     }
 ?>
