@@ -3,6 +3,7 @@
   $busca = new buscaComponenteTabela();
   if (session_status() == PHP_SESSION_NONE) {
     session_start();
+    $_SESSION['precoTotal'] = "";
     $_SESSION['componente'] = "";
     $retorno = "<table class='tg' style='undefined;table-layout: fixed; width: 770px'>
       <colgroup>
@@ -10,7 +11,7 @@
         <col style='width: 70px'>
         <col style='width: 230px'>
         <col style='width: 140px'>
-        <col style='width: 100px'>
+        <col style='width: 120px'>
         <col style='width: 70px'>
       </colgroup>
       <tr>
@@ -200,14 +201,22 @@
           <td class='tg-yw4l'></td>
         </tr>";
       }
+      if (isset($_SESSION['precoTotal']) && !empty($_SESSION['precoTotal'])){
       $retorno .= "<tr>
-        <td class='tg-yw4l'></td>
-        <td class='tg-yw4l'></td>
-        <td class='tg-yw4l'></td>
-        <td class='tg-yw4l'></td>
-        <td class='tg-yw4l'></td>
-        <td class='tg-value'><input type='button' class='fake-btn-value' value='R$ 0,00'></td>
+        <td class='tg-none'></td>
+        <td class='tg-none'></td>
+        <td class='tg-none'></td>
+        <td class='tg-none' colspan='3'><button class='fake-btn-value'>R$ ".number_format($_SESSION['precoTotal'], 2, ',', '.')."</button></td>
       </tr></table>";
+      }
+      else {
+        $retorno .= "<tr>
+          <td class='tg-none'></td>
+          <td class='tg-none'></td>
+          <td class='tg-none'></td>
+          <td class='tg-none' colspan='3'><button class='fake-btn-value'>R$ 0,00</button></td>
+        </tr></table>";
+      }
       echo $retorno;
     }
     else{
@@ -283,11 +292,11 @@
           <td class='tg-yw4l'></td>
         </tr>
         <tr>
-          <td class='tg-yw4l'></td>
-          <td class='tg-yw4l'></td>
-          <td class='tg-yw4l'></td>
-          <td class='tg-yw4l'></td>
-          <td class='tg-yw4l'><input type='button' class='fake-btn-value' value='R$ 0,00'></td>
+          <td class='tg-none'></td>
+          <td class='tg-none'></td>
+          <td class='tg-none'></td>
+          <td class='tg-none'></td>
+          <td class='tg-none'><button class='fake-btn-value'>R$ 0,00</button></td>
         </tr>
       </table><br><br>";
     }
