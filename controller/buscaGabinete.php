@@ -21,8 +21,8 @@
             $gabinete -> setComponenteBasico($product['thumbnail']['url']);
 
             $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($gabinete -> getIdComponente());
-            foreach ($retornoEspecifico['products'] as $product) {
-                /*$gabinete -> setMarcaComponente($product['technicalSpecification']['Marca']);
+            /*foreach ($retornoEspecifico['products'] as $product) {
+                $gabinete -> setMarcaComponente($product['technicalSpecification']['Marca']);
                 $gabinete -> setSocketComponente($product['technicalSpecification']['Soquete']);
                 $gabinete -> setMemTipComponente($product['technicalSpecification']['Tipo de Memória']);
                 $gabinete -> setMemMaxComponente($product['technicalSpecification']['Memória Máxima Suportável']);*/
@@ -39,10 +39,10 @@
                 $ofertas[] = $oferta;
             }
             $gabinete -> setLojaComponente($ofertas);
-            $ofertas = null;*/
+            $ofertas = null;
 
             $gabinetes[] = $gabinete;
-        }
+        }*/
         $tabela = new criaTabela('gabinete', $gabinetes);
         echo $tabela -> retornaTabela();
     } else {

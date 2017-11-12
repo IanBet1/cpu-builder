@@ -21,8 +21,8 @@
             $fonte -> setComponenteBasico($product['thumbnail']['url']);
 
             $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($fonte -> getIdComponente());
-            foreach ($retornoEspecifico['products'] as $product) {
-                /*$fonte -> setMarcaComponente($product['technicalSpecification']['Marca']);
+            /*foreach ($retornoEspecifico['products'] as $product) {
+                $fonte -> setMarcaComponente($product['technicalSpecification']['Marca']);
                 $fonte -> setSocketComponente($product['technicalSpecification']['Soquete']);
                 $fonte -> setMemTipComponente($product['technicalSpecification']['Tipo de Memória']);
                 $fonte -> setMemMaxComponente($product['technicalSpecification']['Memória Máxima Suportável']);*/
@@ -39,10 +39,10 @@
                 $ofertas[] = $oferta;
             }
             $fonte -> setLojaComponente($ofertas);
-            $ofertas = null;*/
+            $ofertas = null;
 
             $fontes[] = $fonte;
-        }
+        }*/
         $tabela = new criaTabela('fonte', $fontes);
         echo $tabela -> retornaTabela();
     } else {
