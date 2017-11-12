@@ -14,7 +14,32 @@
             $_SESSION[$componente.'Id'] = $product['id'];
             $_SESSION[$componente.'Nome'] = $product['name'];
             $_SESSION[$componente.'Preco'] = $product['priceMin'];
+            $_SESSION['precoTotal'] += $product['priceMin'];
             $_SESSION[$componente.'Img'] = $product['thumbnail']['url'];
+
+            if($componente == 'processador') {
+              $_SESSION[$componente.'Marca'] = $product['technicalSpecification']['Marca'];
+              $_SESSION[$componente.'Velocidade'] = $product['technicalSpecification']['Velocidade'];
+            } else if($componente == 'placamae') {
+              $_SESSION[$componente.'Marca'] = $product['technicalSpecification']['Marca'];
+              $_SESSION[$componente.'Soquete'] = $product['technicalSpecification']['Soquete'];
+              $_SESSION[$componente.'TipMem'] = $product['technicalSpecification']['Tipo de Memória'];
+              $_SESSION[$componente.'MaxMem'] = $product['technicalSpecification']['Memória Máxima Suportável'];
+            } else if($componente == 'memoriaram') {
+              $_SESSION[$componente.'VelMem'] = $product['technicalSpecification']['Velocidade da Memória'];
+              $_SESSION[$componente.'Cap'] = $product['technicalSpecification']['Capacidade'];
+              $_SESSION[$componente.'Marca'] = $product['technicalSpecification']['Marca'];
+              $_SESSION[$componente.'TipMem'] = $product['technicalSpecification']['Tipo de Memória'];
+            } else if($componente == 'hd/ssd') {
+              $_SESSION[$componente.'Marca'] = $product['technicalSpecification']['Marca'];
+              $_SESSION[$componente.'Arm'] = $product['technicalSpecification']['Armazenamento'];
+              $_SESSION[$componente.'Cap'] = $product['technicalSpecification']['Capacidade'];
+            } else if($componente == 'placavideo') {
+              $_SESSION[$componente.'Marca'] = $product['technicalSpecification']['Marca'];
+              $_SESSION[$componente.'Mem'] = $product['technicalSpecification']['Memória'];
+            } /*else if($componente == 'fonte') {
+            } else if($componente == 'gabinete') {
+            }*/
 
             $ofertas;
             $retornoOferta = $leitorJson -> buscaOfertasDeProdutos($_SESSION[$componente.'Id']);
