@@ -27,14 +27,14 @@ VALUES
 
 INSERT INTO socketComponente (idSocket, marcaComponente, nomeSocket)
 VALUES
-  (null, 'Intel', 'LGA 775'),
-  (null, 'Intel', 'LGA 1366'),
-  (null, 'Intel', 'LGA 1156'),
-  (null, 'Intel', 'LGA 1155'),
-  (null, 'Intel', 'LGA 2011'),
-  (null, 'Intel', 'LGA 1150'),
-  (null, 'Intel', 'LGA 1151'),
-  (null, 'Intel', 'LGA 2066'),
+  (null, 'Intel', 'LGA775'),
+  (null, 'Intel', 'LGA1366'),
+  (null, 'Intel', 'LGA1156'),
+  (null, 'Intel', 'LGA1155'),
+  (null, 'Intel', 'LGA2011'),
+  (null, 'Intel', 'LGA1150'),
+  (null, 'Intel', 'LGA1151'),
+  (null, 'Intel', 'LGA2066'),
   (null, 'AMD', 'F'),
   (null, 'AMD', 'AM1'),
   (null, 'AMD', 'AM2'),
