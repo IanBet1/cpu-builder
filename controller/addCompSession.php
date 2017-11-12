@@ -3,6 +3,7 @@
   $idComponente = $_POST['idComponente'];
 
   session_start();
+  $_SESSION['precoTotal'] = 0;
   switch($componente){
     case 'processador':{
       $_SESSION["processador"] = $idComponente;
