@@ -8,7 +8,7 @@
   display: inline-block;
 }
 .fake-btn {
-  background-color: #004661;
+  background-color: #203C6E;
   padding: 5px;
   border-radius: 2px;
   -webkit-transition: background 300ms ease,color 300ms ease;
@@ -55,7 +55,7 @@ thead th {
 
 thead th[colspan],
 thead th[rowspan] {
-			background:#004661;
+			background:#203C6E;
       color: #fff;
 }
 
@@ -70,11 +70,11 @@ table td {
 }
 
 .not_found_sorry {
-  color: #004661;
+  color: #203C6E;
   font-size: 48px;
 }
 
 .not_found {
-  color: #004661;
+  color: #203C6E;
   font-size: 36px;
 }
