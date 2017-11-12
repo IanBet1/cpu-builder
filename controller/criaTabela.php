@@ -46,6 +46,7 @@
             <th></th>
           </tr></thead><tbody>';
 
+          if($this -> getComponentes() != 0) {
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
@@ -69,6 +70,7 @@
             </td>
             </tr>";
               }
+            }
           } elseif ($this -> getComponenteBasico() == 'placamae') {
               $retorno .=
           '<thead><tr>
@@ -80,6 +82,7 @@
             <th></th>
           </tr></thead><tbody>';
 
+          if($this -> getComponentes() != 0) {
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
@@ -107,6 +110,7 @@
             </td>
             </tr>";
               }
+            }
           } elseif ($this -> getComponenteBasico() == 'memoriaram') {
               $retorno .=
           '<thead><tr>
@@ -118,7 +122,7 @@
             <th>Valor</th>
             <th></th>
           </tr></thead><tbody>';
-
+          if($this -> getComponentes() != 0) {
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
@@ -150,6 +154,7 @@
             </td>
             </tr>";
               }
+            }
           } elseif ($this -> getComponenteBasico() == 'hd/ssd') {
               $retorno .=
           '<thead><tr>
@@ -161,7 +166,7 @@
             <th>Valor</th>
             <th></th>
           </tr></thead><tbody>';
-
+          if($this -> getComponentes() != 0) {
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
@@ -193,6 +198,7 @@
             </td>
             </tr>";
               }
+            }
           } elseif ($this -> getComponenteBasico() == 'placavideo') {
               $retorno .=
           '<thead><tr>
@@ -203,7 +209,7 @@
             <th>Valor</th>
             <th></th>
           </tr></thead><tbody>';
-
+          if($this -> getComponentes() != 0) {
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
@@ -231,6 +237,7 @@
             </td>
             </tr>";
               }
+            }
           } elseif ($this -> getComponenteBasico() == 'fonte') {
               $retorno .=
           '<thead><tr>
@@ -240,7 +247,7 @@
             <th>Valor</th>
             <th></th>
           </tr></thead><tbody>';
-
+          if($this -> getComponentes() != 0) {
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
@@ -264,6 +271,7 @@
             </td>
             </tr>";
               }
+            }
           } elseif ($this -> getComponenteBasico() == 'gabinete') {
               $retorno .=
           '<thead><tr>
@@ -273,7 +281,7 @@
             <th>Valor</th>
             <th></th>
           </tr></thead><tbody>';
-
+          if($this -> getComponentes() != 0) {
               foreach ($this -> getComponentes() as $componente) {
                   $retorno .= "<tr>
             <td>
@@ -298,6 +306,7 @@
             </tr>";
               }
           }
+        }
           $retorno .= '</tbody></table>';
 
           return $retorno;
