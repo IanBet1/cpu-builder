@@ -4,6 +4,7 @@
     include('../controller/leitorJson.php');
     include('../controller/criaTabela.php');
 
+    session_start();
     $idCategoria = new buscaCategoria('memoriaram');
     $leitorJson = new leitorJson($idCategoria -> retornaCategoria());
     $retorno = $leitorJson -> buscaProdutosPorCategoria();
@@ -28,7 +29,19 @@
                     $memoriaram -> setValorGeralMaxComponente($product['priceMax']);
                     $memoriaram -> setComponenteBasico($product['thumbnail']['url']);
 
+                    if (isset($_SESSION['placamae']) && empty($_SESSION['placamae'])) {
+                      $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($memoriaram -> getIdComponente());
+                      foreach ($retornoEspecifico['products'] as $product) {
+                          $memoriaram -> setVelocidadeComponente($product['technicalSpecification']['Velocidade da Memória']);
+                          $memoriaram -> setCapacidadeComponente($product['technicalSpecification']['Capacidade']);
+                          $memoriaram -> setMarcaComponente($product['technicalSpecification']['Marca']);
+                          $memoriaram -> setTipoMemComponente($product['technicalSpecification']['Tipo de Memória']);
+                      }
 
+                      $pos = strpos($memoriaram -> getNomeComponente(), $memoriaram -> getCapacidadeComponente());
+                      $memoriaram -> setNomeComponente(substr($memoriaram -> getNomeComponente(), 0, $pos));
+                      $memoriasram[] = $memoriaram;
+                  } else {
                     $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($memoriaram -> getIdComponente());
                     foreach ($retornoEspecifico['products'] as $product) {
                         $memoriaram -> setVelocidadeComponente($product['technicalSpecification']['Velocidade da Memória']);
@@ -39,27 +52,22 @@
 
                     $pos = strpos($memoriaram -> getNomeComponente(), $memoriaram -> getCapacidadeComponente());
                     $memoriaram -> setNomeComponente(substr($memoriaram -> getNomeComponente(), 0, $pos));
-
-                    /*$retornoOferta = $leitorJson -> buscaOfertasDeProdutos($memoriaram -> getIdComponente());
-                    foreach ($retornoOferta['offers'] as $offer) {
-                        $oferta = new lojaComponente();
-                        $oferta -> setLogoLoja($offer['store']['thumbnail']);
-                        $oferta -> setNomeLoja($offer['store']['name']);
-                        $oferta -> setValorLoja($offer['price']);
-                        $oferta -> setLinkLoja($offer['link']);
-
-                        $ofertas[] = $oferta;
+                    if($memoriaram -> getTipoMemComponente() == $_SESSION['placamaeTipMem']) {
+                      $memoriasram[] = $memoriaram;
                     }
-                    $memoriaram -> setLojaComponente($ofertas);
-                    $ofertas = null;*/
-
-                    $memoriasram[] = $memoriaram;
-                }
+                  }
+              }
             }
         }
-        $tabela = new criaTabela('memoriaram', $memoriasram);
-        echo $tabela -> retornaTabela();
-    } else {
+        if(!empty($memoriasram)){
+          $tabela = new criaTabela('memoriaram', $memoriasram);
+          echo $tabela -> retornaTabela();
+        } else {
+          $tabela = new criaTabela('memoriaram', 0);
+          echo $tabela -> retornaTabela();
+        }
+    }
+    else {
       echo "<br><br><h1 class='not_found_sorry'>Lamentamos!</h1><br><br>
       <h1 class='not_found'>Não existem produtos para o componente. :'(</h1>";
     }

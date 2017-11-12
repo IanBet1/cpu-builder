@@ -4,6 +4,7 @@
     include('../controller/leitorJson.php');
     include('../controller/criaTabela.php');
 
+    session_start();
     $idCategoria = new buscaCategoria('processador');
     $leitorJson = new leitorJson($idCategoria -> retornaCategoria());
     $retorno = $leitorJson -> buscaProdutosPorCategoria();
@@ -20,34 +21,43 @@
             $processador -> setValorGeralMaxComponente($product['priceMax']);
             $processador -> setComponenteBasico($product['thumbnail']['url']);
 
-            $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($processador -> getIdComponente());
-            foreach ($retornoEspecifico['products'] as $product) {
-                $processador -> setVelocidadeComponente($product['technicalSpecification']['Velocidade']);
-                $processador -> setMarcaComponente($product['technicalSpecification']['Marca']);
+            if (isset($_SESSION['placamae']) && empty($_SESSION['placamae'])) {
+                $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($processador -> getIdComponente());
+
+                foreach ($retornoEspecifico['products'] as $product) {
+                    $processador -> setVelocidadeComponente($product['technicalSpecification']['Velocidade']);
+                    $processador -> setMarcaComponente($product['technicalSpecification']['Marca']);
+                }
+
+                $pos = strpos($processador -> getNomeComponente(), $processador -> getVelocidadeComponente());
+                $processador -> setNomeComponente(substr($processador -> getNomeComponente(), 0, $pos));
+                $processadores[] = $processador;
+            } else {
+                $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($processador -> getIdComponente());
+
+                foreach ($retornoEspecifico['products'] as $product) {
+                    $processador -> setVelocidadeComponente($product['technicalSpecification']['Velocidade']);
+                    $processador -> setMarcaComponente($product['technicalSpecification']['Marca']);
+                }
+
+                $idCategoria -> setComponenteBasico($_SESSION['placamaeSoquete']);
+                $soquete = $idCategoria -> retornaSocket();
+
+                if ($processador -> getMarcaComponente() == $soquete) {
+                    $pos = strpos($processador -> getNomeComponente(), $processador -> getVelocidadeComponente());
+                    $processador -> setNomeComponente(substr($processador -> getNomeComponente(), 0, $pos));
+                    $processadores[] = $processador;
+                }
             }
-
-            $pos = strpos($processador -> getNomeComponente(), $processador -> getVelocidadeComponente());
-            $processador -> setNomeComponente(substr($processador -> getNomeComponente(), 0, $pos));
-
-            /*$retornoOferta = $leitorJson -> buscaOfertasDeProdutos($processador -> getIdComponente());
-            foreach ($retornoOferta['offers'] as $offer) {
-                $oferta = new lojaComponente();
-                $oferta -> setLogoLoja($offer['store']['thumbnail']);
-                $oferta -> setNomeLoja($offer['store']['name']);
-                $oferta -> setValorLoja($offer['price']);
-                $oferta -> setLinkLoja($offer['link']);
-
-                $ofertas[] = $oferta;
-            }
-            $processador -> setLojaComponente($ofertas);
-            $ofertas = null;*/
-
-            $processadores[] = $processador;
         }
-        $tabela = new criaTabela('processador', $processadores);
-        echo $tabela -> retornaTabela();
+        if(!empty($processadores)){
+          $tabela = new criaTabela('processador', $processadores);
+          echo $tabela -> retornaTabela();
+        } else {
+          $tabela = new criaTabela('processador', 0);
+          echo $tabela -> retornaTabela();
+        }
     } else {
-      echo "<br><br><h1 class='not_found_sorry'>Lamentamos!</h1><br><br>
+        echo "<br><br><h1 class='not_found_sorry'>Lamentamos!</h1><br><br>
       <h1 class='not_found'>Não existem produtos para o componente. :'(</h1>";
     }
-?>
