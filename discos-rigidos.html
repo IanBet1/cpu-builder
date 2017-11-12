@@ -55,9 +55,18 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
               "bLengthChange": false,
               ordering: false,
               responsive: true,
+              "language": {
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ componentes",
+                "infoEmpty": "",
+                "emptyTable": "O guia de compatibilidade não encontrou nenhum componente!",
+                "paginate": {
+                  "next": ">>",
+                  "previous": "<<"
+                }
+              }
             });
             $('#componente').show();
-            $("input[type=button]").click(function(){
+            $('#componenteTabela').on('click', '.fake-btn', function(){
               $.post(
                 '../controller/addCompSession.php',
                 {componente: $(this).data("componente"), idComponente: $(this).data("id-componente")},
