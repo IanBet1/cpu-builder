@@ -23,7 +23,7 @@
             $placamae -> setValorGeralMaxComponente($product['priceMax']);
             $placamae -> setComponenteBasico($product['thumbnail']['url']);
 
-            if((isset($_SESSION['processador']) && empty($_SESSION['processador'])) && (isset($_SESSION['memoriaram']) && empty($_SESSION['memoriaram']))){
+            if(((isset($_SESSION['processador']) && empty($_SESSION['processador'])) || !isset($_SESSION['processador'])) && ((isset($_SESSION['memoriaram']) && empty($_SESSION['memoriaram'])) || !isset($_SESSION['memoriaram']))){
               $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($placamae -> getIdComponente());
               foreach ($retornoEspecifico['products'] as $product) {
                   $placamae -> setMarcaComponente($product['technicalSpecification']['Marca']);

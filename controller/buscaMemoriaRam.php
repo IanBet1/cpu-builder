@@ -52,7 +52,11 @@
 
                     $pos = strpos($memoriaram -> getNomeComponente(), $memoriaram -> getCapacidadeComponente());
                     $memoriaram -> setNomeComponente(substr($memoriaram -> getNomeComponente(), 0, $pos));
-                    if($memoriaram -> getTipoMemComponente() == $_SESSION['placamaeTipMem']) {
+                    if(!empty($_SESSION['placamaeTipMem'])){
+                      if($memoriaram -> getTipoMemComponente() == $_SESSION['placamaeTipMem']) {
+                        $memoriasram[] = $memoriaram;
+                      }
+                    } else {
                       $memoriasram[] = $memoriaram;
                     }
                   }
