@@ -48,7 +48,7 @@
             "../controller/iniciaSessao.php"
           ).done(function(data){
             $('#u4779').html(data);
-            $("input[type=button]").click(function(){
+            $('.tg').on('click', '.fake-btn-remove', function(){
               $.post(
                 '../controller/removeCompSession.php',
                 {componente: $(this).data("componente"), idComponente: $(this).data("id-componente")},
@@ -112,8 +112,10 @@
         <!-- /m_editable -->
         <div class="colelem shared_content" id="u4779" data-content-guid="u4779_content">
         </div>
-
-        <div class="verticalspacer" data-offset-top="572" data-content-above-spacer="572" data-content-below-spacer="62"></div>
+        <div class="colelem shared_content" id="u4779" data-content-guid="u4779_content">
+        </div>
+        <div class="verticalspacer" data-offset-top="127" data-content-above-spacer="127" data-content-below-spacer="415">
+        </div>
         <div class="browser_width colelem" id="u416-bw">
           <div id="u416">
             <!-- group -->
