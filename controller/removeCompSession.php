@@ -29,14 +29,23 @@
       $_SESSION['memoriaramImg'] = "";
       $_SESSION['memoriaramImgLoja'] = "";
   }
-    else if ($componente == 'hd/ssd') {
-      $_SESSION["hd/ssd"] = "";
-      $_SESSION['hd/ssdNome'] = "";
-      $_SESSION['precoTotal'] -= $_SESSION['hd/ssdPreco'];
-      $_SESSION['hd/ssdPreco'] = "";
-      $_SESSION['hd/ssdLinkLoja'] = "";
-      $_SESSION['hd/ssdImg'] = "";
-      $_SESSION['hd/ssdImgLoja'] = "";
+    else if ($componente == 'hd') {
+      $_SESSION["hd"] = "";
+      $_SESSION['hdNome'] = "";
+      $_SESSION['precoTotal'] -= $_SESSION['hdPreco'];
+      $_SESSION['hdPreco'] = "";
+      $_SESSION['hdLinkLoja'] = "";
+      $_SESSION['hdImg'] = "";
+      $_SESSION['hdImgLoja'] = "";
+  }
+    else if ($componente == 'ssd') {
+      $_SESSION["ssd"] = "";
+      $_SESSION['ssdNome'] = "";
+      $_SESSION['precoTotal'] -= $_SESSION['ssdPreco'];
+      $_SESSION['ssdPreco'] = "";
+      $_SESSION['ssdLinkLoja'] = "";
+      $_SESSION['ssdImg'] = "";
+      $_SESSION['ssdImgLoja'] = "";
   }
     else if ($componente == 'placavideo') {
       $_SESSION["placavideo"] = "";

@@ -5,14 +5,14 @@
     session_start();
     $_SESSION['precoTotal'] = "";
     $_SESSION['componente'] = "";
-    $retorno = "<table class='tg' style='undefined;table-layout: fixed; width: 770px'>
+    $retorno = "<table class='tg' style='undefined;table-layout: fixed; width: 700px'>
       <colgroup>
         <col style='width: 130px'>
-        <col style='width: 70px'>
+        <col style='width: 50px'>
         <col style='width: 230px'>
-        <col style='width: 140px'>
-        <col style='width: 120px'>
-        <col style='width: 70px'>
+        <col style='width: 100px'>
+        <col style='width: 100px'>
+        <col style='width: 80px'>
       </colgroup>
       <tr>
         <th class='tg-zv5z'>Componente</th>
@@ -23,17 +23,17 @@
         <th class='tg-zv5z'></th>
       </tr>";
 
-    if(isset($_SESSION['processador']) || isset($_SESSION['placamae']) || isset($_SESSION['memoriaram']) || isset($_SESSION['hd/ssd']) || isset($_SESSION['placavideo']) || isset($_SESSION['fonte']) || isset($_SESSION['gabinete']))
+    if(isset($_SESSION['processador']) || isset($_SESSION['placamae']) || isset($_SESSION['memoriaram']) || isset($_SESSION['hd']) || isset($_SESSION['ssd']) || isset($_SESSION['placavideo']) || isset($_SESSION['fonte']) || isset($_SESSION['gabinete']))
     {
       if(isset($_SESSION['processador']) && !empty($_SESSION['processador'])){
         $_SESSION['componente'] = "processador";
         $busca -> insertComponenteTabela();
         $retorno .= "<tr>
           <td class='tg-yw4l'><b>Processador</td>
-          <td class='tg-yw4l'><img src='".$_SESSION['processadorImg']."' height='48' width='48'></td>
+          <td class='tg-value'><img src='".$_SESSION['processadorImg']."' height='45' width='45'></td>
           <td class='tg-yw4l'>".$_SESSION['processadorNome']."</td>
           <td class='tg-value'>R$ ".number_format($_SESSION['processadorPreco'], 2, ',', '.')."</td>
-          <td class='tg-yw4l'><a href='".$_SESSION['processadorLinkLoja']."'><img src='".$_SESSION['processadorImgLoja']."'></a></td>
+          <td class='tg-value'><a href='".$_SESSION['processadorLinkLoja']."'><img src='".$_SESSION['processadorImgLoja']."'></a></td>
           <td class='tg-yw4l'><input type='button' class='fake-btn-remove' data-componente='processador' value='X'></td>
         </tr>";
       }
@@ -52,10 +52,10 @@
         $busca -> insertComponenteTabela();
         $retorno .= "<tr>
           <td class='tg-yw4l'><b>Placa-Mãe</td>
-          <td class='tg-yw4l'><img src='".$_SESSION['placamaeImg']."' height='48' width='48'></td>
+          <td class='tg-value'><img src='".$_SESSION['placamaeImg']."' height='45' width='45'></td>
           <td class='tg-yw4l'>".$_SESSION['placamaeNome']."</td>
           <td class='tg-value'>R$ ".number_format($_SESSION['placamaePreco'], 2, ',', '.')."</td>
-          <td class='tg-yw4l'><a href='".$_SESSION['placamaeLinkLoja']."'><img src='".$_SESSION['placamaeImgLoja']."'></a></td>
+          <td class='tg-value'><a href='".$_SESSION['placamaeLinkLoja']."'><img src='".$_SESSION['placamaeImgLoja']."'></a></td>
           <td class='tg-yw4l'><input type='button' class='fake-btn-remove' data-componente='placamae' value='X'></td>
         </tr>";
       }
@@ -74,10 +74,10 @@
         $busca -> insertComponenteTabela();
         $retorno .= "<tr>
           <td class='tg-yw4l'><b>Memória RAM</td>
-          <td class='tg-yw4l'><img src='".$_SESSION['memoriaramImg']."' height='48' width='48'></td>
+          <td class='tg-value'><img src='".$_SESSION['memoriaramImg']."' height='45' width='45'></td>
           <td class='tg-yw4l'>".$_SESSION['memoriaramNome']."</td>
           <td class='tg-value'>R$ ".number_format($_SESSION['memoriaramPreco'], 2, ',', '.')."</td>
-          <td class='tg-yw4l'><a href='".$_SESSION['memoriaramLinkLoja']."'><img src='".$_SESSION['memoriaramImgLoja']."'></a></td>
+          <td class='tg-value'><a href='".$_SESSION['memoriaramLinkLoja']."'><img src='".$_SESSION['memoriaramImgLoja']."'></a></td>
           <td class='tg-yw4l'><input type='button' class='fake-btn-remove' data-componente='memoriaram' value='X'></td>
         </tr>";
       }
@@ -91,19 +91,20 @@
           <td class='tg-yw4l'></td>
         </tr>";
       }
-      if(isset($_SESSION['hd/ssd']) && !empty($_SESSION['hd/ssd'])){
-        $_SESSION['componente'] = "hd/ssd";
+      if(isset($_SESSION['hd']) && !empty($_SESSION['hd'])){
+        $_SESSION['componente'] = "hd";
         $busca -> insertComponenteTabela();
         $retorno .= "<tr>
           <td class='tg-yw4l'><b>Disco Rígido</td>
-          <td class='tg-yw4l'><img src='".$_SESSION['hd/ssdImg']."' height='48' width='48'></td>
-          <td class='tg-yw4l'>".$_SESSION['hd/ssdNome']."</td>
-          <td class='tg-value'>R$ ".number_format($_SESSION['hd/ssdPreco'], 2, ',', '.')."</td>
-          <td class='tg-yw4l'><a href='".$_SESSION['hd/ssdLinkLoja']."'><img src='".$_SESSION['hd/ssdImgLoja']."'></a></td>
-          <td class='tg-yw4l'><input type='button' class='fake-btn-remove' data-componente='hd/ssd' value='X'></td>
+          <td class='tg-value'><img src='".$_SESSION['hdImg']."' height='45' width='45'></td>
+          <td class='tg-yw4l'>".$_SESSION['hdNome']."</td>
+          <td class='tg-value'>R$ ".number_format($_SESSION['hdPreco'], 2, ',', '.')."</td>
+          <td class='tg-value'><a href='".$_SESSION['hdLinkLoja']."'><img src='".$_SESSION['hdImgLoja']."'></a></td>
+          <td class='tg-yw4l'><input type='button' class='fake-btn-remove' data-componente='hd' value='X'></td>
         </tr>";
       }
       else {
+
         $retorno .= "<tr>
           <td class='tg-yw4l'><b>Disco Rígido</td>
           <td class='tg-yw4l'></td>
@@ -113,16 +114,16 @@
           <td class='tg-yw4l'></td>
         </tr>";
       }
-      if(isset($_SESSION['hd/ssd']) && !empty($_SESSION['hd/ssd'])){
-        $_SESSION['componente'] = "hd/ssd";
+      if(isset($_SESSION['ssd']) && !empty($_SESSION['ssd'])){
+        $_SESSION['componente'] = "ssd";
         $busca -> insertComponenteTabela();
         $retorno .= "<tr>
           <td class='tg-yw4l'><b>SSD</td>
-          <td class='tg-yw4l'><img src='".$_SESSION['hd/ssdImg']."' height='48' width='48'></td>
-          <td class='tg-yw4l'>".$_SESSION['hd/ssdNome']."</td>
-          <td class='tg-value'>R$ ".number_format($_SESSION['hd/ssdPreco'], 2, ',', '.')."</td>
-          <td class='tg-yw4l'><a href='".$_SESSION['hd/ssdLinkLoja']."'><img src='".$_SESSION['hd/ssdImgLoja']."'></a></td>
-          <td class='tg-yw4l'><input type='button' class='fake-btn-remove' data-componente='hd/ssd' value='X'></td>
+          <td class='tg-value'><img src='".$_SESSION['ssdImg']."' height='45' width='45'></td>
+          <td class='tg-yw4l'>".$_SESSION['ssdNome']."</td>
+          <td class='tg-value'>R$ ".number_format($_SESSION['ssdPreco'], 2, ',', '.')."</td>
+          <td class='tg-value'><a href='".$_SESSION['ssdLinkLoja']."'><img src='".$_SESSION['ssdImgLoja']."'></a></td>
+          <td class='tg-yw4l'><input type='button' class='fake-btn-remove' data-componente='ssd' value='X'></td>
         </tr>";
       }
       else {
@@ -140,10 +141,10 @@
         $busca -> insertComponenteTabela();
         $retorno .= "<tr>
           <td class='tg-yw4l'><b>Placa de Vídeo</td>
-          <td class='tg-yw4l'><img src='".$_SESSION['placavideoImg']."' height='48' width='48'></td>
+          <td class='tg-value'><img src='".$_SESSION['placavideoImg']."' height='45' width='45'></td>
           <td class='tg-yw4l'>".$_SESSION['placavideoNome']."</td>
           <td class='tg-value'>R$ ".number_format($_SESSION['placavideoPreco'], 2, ',', '.')."</td>
-          <td class='tg-yw4l'><a href='".$_SESSION['placavideoLinkLoja']."'><img src='".$_SESSION['placavideoImgLoja']."'></a></td>
+          <td class='tg-value'><a href='".$_SESSION['placavideoLinkLoja']."'><img src='".$_SESSION['placavideoImgLoja']."'></a></td>
           <td class='tg-yw4l'><input type='button' class='fake-btn-remove' data-componente='placavideo' value='X'></td>
         </tr>";
       }
@@ -162,10 +163,10 @@
         $busca -> insertComponenteTabela();
         $retorno .= "<tr>
           <td class='tg-yw4l'><b>Fonte</td>
-          <td class='tg-yw4l'><img src='".$_SESSION['fonteImg']."' height='48' width='48'></td>
+          <td class='tg-value'><img src='".$_SESSION['fonteImg']."' height='45' width='45'></td>
           <td class='tg-yw4l'>".$_SESSION['fonteNome']."</td>
           <td class='tg-value'>R$ ".number_format($_SESSION['fontePreco'], 2, ',', '.')."</td>
-          <td class='tg-yw4l'><a href='".$_SESSION['fonteLinkLoja']."'><img src='".$_SESSION['fonteImgLoja']."'></a></td>
+          <td class='tg-value'><a href='".$_SESSION['fonteLinkLoja']."'><img src='".$_SESSION['fonteImgLoja']."'></a></td>
           <td class='tg-yw4l'><input type='button' class='fake-btn-remove' data-componente='fonte' value='X'></td>
         </tr>";
       }
@@ -184,10 +185,10 @@
         $busca -> insertComponenteTabela();
         $retorno .= "<tr>
           <td class='tg-yw4l'><b>Gabinete</td>
-          <td class='tg-yw4l'><img src='".$_SESSION['gabineteImg']."' height='48' width='48'></td>
+          <td class='tg-value'><img src='".$_SESSION['gabineteImg']."' height='45' width='45'></td>
           <td class='tg-yw4l'>".$_SESSION['gabineteNome']."</td>
           <td class='tg-value'>R$ ".number_format($_SESSION['gabinetePreco'], 2, ',', '.')."</td>
-          <td class='tg-yw4l'><a href='".$_SESSION['gabineteLinkLoja']."'><img src='".$_SESSION['gabineteImgLoja']."'></a></td>
+          <td class='tg-value'><a href='".$_SESSION['gabineteLinkLoja']."'><img src='".$_SESSION['gabineteImgLoja']."'></a></td>
           <td class='tg-yw4l'><input type='button' class='fake-btn-remove' data-componente='gabinete' value='X'></td>
         </tr>";
       }
@@ -259,14 +260,14 @@
         <tr>
           <td class='tg-yw4l'><b>Disco Rígido</td>
           <td class='tg-yw4l'></td>
-          <td class='tg-yw4l'><a ng-if='!part.price' class='fake-btn' ng-href='/discos-rigidos' href='/discos-rigidos.html'>Escolher Disco Rígido</a></td>
+          <td class='tg-yw4l'><a ng-if='!part.price' class='fake-btn' ng-href='/discos-rigidos' href='/discos-rigidos.html' componente='hd'>Escolher Disco Rígido</a></td>
           <td class='tg-yw4l'></td>
           <td class='tg-yw4l'></td>
         </tr>
         <tr>
           <td class='tg-yw4l'><b>SSD</td>
           <td class='tg-yw4l'></td>
-          <td class='tg-yw4l'><a ng-if='!part.price' class='fake-btn' ng-href='/ssds' href='/ssds.html'>Escolher SSD</a></td>
+          <td class='tg-yw4l'><a ng-if='!part.price' class='fake-btn' ng-href='/ssds' href='/ssds.html' componente='ssd'>Escolher SSD</a></td>
           <td class='tg-yw4l'></td>
           <td class='tg-yw4l'></td>
         </tr>

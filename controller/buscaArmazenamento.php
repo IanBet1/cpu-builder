@@ -4,11 +4,13 @@
     include('../controller/leitorJson.php');
     include('../controller/criaTabela.php');
 
+    $componente = $_POST['componente'];
     $idCategoria = new buscaCategoria('hd/ssd');
     $leitorJson = new leitorJson($idCategoria -> retornaCategoria());
     $retorno = $leitorJson -> buscaProdutosPorCategoria();
 
-    $armazenamentos;
+    $hds = null;
+    $ssds = null;
     $ofertas;
 
     if ($retorno['requestInfo']['status'] == 'OK') {
@@ -36,24 +38,24 @@
                 $pos = strlen($armazenamento -> getMarcaComponente());
                 $armazenamento -> setNomeComponente(substr($armazenamento -> getNomeComponente(), $pos));
 
-                /*$retornoOferta = $leitorJson -> buscaOfertasDeProdutos($armazenamento -> getIdComponente());
-                foreach ($retornoOferta['offers'] as $offer) {
-                    $oferta = new lojaComponente();
-                    $oferta -> setLogoLoja($offer['store']['thumbnail']);
-                    $oferta -> setNomeLoja($offer['store']['name']);
-                    $oferta -> setValorLoja($offer['price']);
-                    $oferta -> setLinkLoja($offer['link']);
-
-                    $ofertas[] = $oferta;
+                if($componente == 'hd'){
+                  if($armazenamento -> getTipoArmazenamentoComponente() == 'HDD'){
+                    $hds[] = $armazenamento;
+                  }
+                } else {
+                  if($armazenamento -> getTipoArmazenamentoComponente() == 'SSD'){
+                    $ssds[] = $armazenamento;
+                  }
                 }
-                $armazenamento -> setLojaComponente($ofertas);
-                $ofertas = null;*/
-
-                $armazenamentos[] = $armazenamento;
             }
         }
-        $tabela = new criaTabela('hd/ssd', $armazenamentos);
-        echo $tabela -> retornaTabela();
+        if($componente == 'hd'){
+          $tabela = new criaTabela('hd', $hds);
+          echo $tabela -> retornaTabela();
+        } else {
+          $tabela = new criaTabela('ssd', $ssds);
+          echo $tabela -> retornaTabela();
+        }
     } else {
       echo "<br><br><h1 class='not_found_sorry'>Lamentamos!</h1><br><br>
       <h1 class='not_found'>Não existem produtos para o componente. :'(</h1>";

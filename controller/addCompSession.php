@@ -14,8 +14,11 @@
     case 'memoriaram':{
       $_SESSION["memoriaram"] = $idComponente;
     };break;
-    case 'hd/ssd':{
-      $_SESSION["hd/ssd"] = $idComponente;
+    case 'hd':{
+      $_SESSION["hd"] = $idComponente;
+    };break;
+    case 'ssd':{
+      $_SESSION["ssd"] = $idComponente;
     };break;
     case 'placavideo':{
       $_SESSION["placavideo"] = $idComponente;

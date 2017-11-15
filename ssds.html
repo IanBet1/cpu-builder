@@ -46,7 +46,8 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
         $('#componente').hide();
         $(window).load(function(){
           $.post(
-            "../controller/buscaArmazenamento.php"
+            "../controller/buscaArmazenamento.php",
+            {componente: 'ssd'}
           ).done(function(data){
             $('#loading').hide();
             $('#componente').html(data);

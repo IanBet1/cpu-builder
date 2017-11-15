@@ -155,7 +155,7 @@
             </tr>";
               }
             }
-          } elseif ($this -> getComponenteBasico() == 'hd/ssd') {
+          } elseif ($this -> getComponenteBasico() == 'hd') {
               $retorno .=
           '<thead><tr>
             <th></th>
@@ -194,11 +194,56 @@
             "</td>";
                   $retorno .= "
             <td>
-              <input type='button' class='fake-btn' data-componente='hd/ssd' data-id-componente='".$componente -> getIdComponente()."' value='Escolher'>
+              <input type='button' class='fake-btn' data-componente='hd' data-id-componente='".$componente -> getIdComponente()."' value='Escolher'>
             </td>
             </tr>";
               }
             }
+          } elseif ($this -> getComponenteBasico() == 'ssd') {
+              $retorno .=
+          '<thead><tr>
+            <th></th>
+            <th>Armazenamento</th>
+            <th>Marca</th>
+            <th>Tipo</th>
+            <th>Capacidade</th>
+            <th>Valor</th>
+            <th></th>
+          </tr></thead><tbody>';
+          if($this -> getComponentes() != 0) {
+              foreach ($this -> getComponentes() as $componente) {
+                  $retorno .= "<tr>
+            <td>
+              <img src='".$componente -> getComponenteBasico()."' height='48' width='48'>
+            </td>";
+                  $retorno .= "
+            <td>".
+              $componente -> getNomeComponente().
+            "</td>";
+                  $retorno .= "
+            <td>".
+              $componente -> getMarcaComponente().
+            "</td>";
+                  $retorno .= "
+            <td>".
+              $componente -> getTipoArmazenamentoComponente().
+            "</td>";
+                  $retorno .= "
+            <td>".
+              $componente -> getCapacidadeComponente().
+            "</td>";
+                  $retorno .= "
+            <td>R$ ".
+              number_format($componente -> getValorGeralMinComponente(), 2, ',', '.').
+            "</td>";
+                  $retorno .= "
+            <td>
+              <input type='button' class='fake-btn' data-componente='ssd' data-id-componente='".$componente -> getIdComponente()."' value='Escolher'>
+            </td>
+            </tr>";
+              }
+            }
+
           } elseif ($this -> getComponenteBasico() == 'placavideo') {
               $retorno .=
           '<thead><tr>
