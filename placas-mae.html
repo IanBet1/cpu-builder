@@ -26,7 +26,7 @@
   <link rel="stylesheet" type="text/css" href="css/master_a-master.css?crc=534736446" />
   <link rel="stylesheet" type="text/css" href="css/placas-mae.css?crc=3954989454" id="pagesheet" />
   <link rel="stylesheet" type="text/css" href="css/monteseupc.css?crc=4252519177" id="pagesheet" />
-  <link rel="stylesheet" type="text/css" href="css/personal.css"/>
+  <link rel="stylesheet" type="text/css" href="css/personal.css" />
   <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
   <!-- IE-only CSS -->
   <!--[if lt IE 9]>
@@ -45,20 +45,19 @@
     document.write('\x3Cscript src="' + (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//webfonts.creativecloud.com/open-sans:n7,n3,n4:default.js" type="text/javascript">\x3C/script>');
   </script>
   <script type="text/javascript">
-  $(document).ready(
-    function() {
+    $(document).ready(
+      function() {
         $('#loading').show();
         $('#componente').hide();
-        $(window).load(function(){
+        $(window).load(function() {
           $.post(
             "../controller/buscaPlacaMae.php"
-          ).done(function(data){
+          ).done(function(data) {
             $('#loading').hide();
             $('#componente').html(data);
             $('#componenteTabela').DataTable({
-              searching: false,
+              searching: true,
               "bLengthChange": false,
-              ordering: false,
               responsive: true,
               "language": {
                 "info": "Mostrando _START_ a _END_ de _TOTAL_ componentes",
@@ -68,24 +67,34 @@
                   "next": ">>",
                   "previous": "<<"
                 }
-              }
+              },
+              "sDom": "ltipr"
             });
             $('#componente').show();
-            $('#componenteTabela').on('click', '.fake-btn', function(){
+            $('#componenteTabela').on('click', '.fake-btn', function() {
               $.post(
-                '../controller/addCompSession.php',
-                {componente: $(this).data("componente"), idComponente: $(this).data("id-componente")},
-                function () {
+                '../controller/addCompSession.php', {
+                  componente: $(this).data("componente"),
+                  idComponente: $(this).data("id-componente")
+                },
+                function() {
                   window.location.replace("monteseupc.html");
-              });
+                });
             });
-          }).fail(function(){
+            $('#soquete').on('click', '.fake-btn-filter', function() {
+              var filtro = $(this).data('filtro');
+              $('#componenteTabela').DataTable().column(2).search(
+                $(this).data('filtro'),
+              ).draw();
+            });
+          }).fail(function() {
             alert("Erro no carregamento.");
           });
         });
-  });
+      });
   </script>
 </head>
+
 <body>
   <div class="breakpoint active" id="bp_infinity" data-min-width="726">
     <!-- responsive breakpoint node -->
@@ -136,11 +145,48 @@
           <!-- custom html -->
           <div id="wrapper">
             <div id="loading">
-              <img src="../images/loadingComp.gif" width="64px" height="64px"/>
+              <img src="../images/loadingComp.gif" width="64px" height="64px" />
+            </div>
+            <div id="filtros" style="float: left; width='150px';">
+              <table id='soquete'>
+                <colgroup>
+                  <col style='width: 50px'>
+                  <col style='width: 100px'>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th class='tg-filter-header' style='text-align: center;' colspan='2'>Soquetes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th class='tg-filter'><input type='button' class='fake-btn-filter' data-filtro='LGA1150' value='X'></th>
+                    <th class='tg-filter'>LGA 1150</th>
+                  </tr>
+                  <tr>
+                    <th class='tg-filter'><input type='button' class='fake-btn-filter' data-filtro='LGA1151' value='X'></th>
+                    <th class='tg-filter'>LGA 1151</th>
+                  </tr>
+                  <tr>
+                    <th class='tg-filter'><input type='button' class='fake-btn-filter' data-filtro='AM3' value='X'></th>
+                    <th class='tg-filter'>AM3</th>
+                  </tr>
+                  <tr>
+                    <th class='tg-filter'><input type='button' class='fake-btn-filter' data-filtro='AM3+' value='X'></th>
+                    <th class='tg-filter'>AM3+</th>
+                  </tr>
+                  <tr>
+                    <th class='tg-filter'><input type='button' class='fake-btn-filter' data-filtro='AM4' value='X'></th>
+                    <th class='tg-filter'>AM4</th>
+                  </tr>
+                </tbody>
+              </table>
             </div>
             <div id="componente">
             </div>
           </div>
+        </div>
+        <div class="verticalspacer" data-offset-top="127" data-content-above-spacer="127" data-content-below-spacer="415">
         </div>
         <div class="browser_width colelem" id="u416-bw">
           <div id="u416">
@@ -200,12 +246,12 @@
       <div class="clearfix grpelem temp_no_id" data-orig-id="u416">
         <!-- group -->
         <span class="nonblock nontext clearfix grpelem placeholder" data-placeholder-for="u430-7_content"><!-- placeholder node --></span>
-        <span class="nonblock nontext clip_frame grpelem placeholder" data-placeholder-for="u2432_content"><!-- placeholder node --></span>
-        <span class="nonblock nontext clip_frame grpelem placeholder" data-placeholder-for="u2448_content"><!-- placeholder node --></span>
-        <span class="nonblock nontext clip_frame grpelem placeholder" data-placeholder-for="u2488_content"><!-- placeholder node --></span>
-        <span class="clearfix grpelem placeholder" data-placeholder-for="u420-4_content"><!-- placeholder node --></span>
-      </div>
+      <span class="nonblock nontext clip_frame grpelem placeholder" data-placeholder-for="u2432_content"><!-- placeholder node --></span>
+      <span class="nonblock nontext clip_frame grpelem placeholder" data-placeholder-for="u2448_content"><!-- placeholder node --></span>
+      <span class="nonblock nontext clip_frame grpelem placeholder" data-placeholder-for="u2488_content"><!-- placeholder node --></span>
+      <span class="clearfix grpelem placeholder" data-placeholder-for="u420-4_content"><!-- placeholder node --></span>
     </div>
+  </div>
   </div>
   <div class="breakpoint" id="bp_570" data-min-width="321" data-max-width="570">
     <!-- responsive breakpoint node -->
@@ -236,12 +282,12 @@
       <div class="clearfix grpelem temp_no_id" data-orig-id="u416">
         <!-- group -->
         <span class="nonblock nontext clearfix grpelem placeholder" data-placeholder-for="u430-7_content"><!-- placeholder node --></span>
-        <span class="nonblock nontext clip_frame grpelem placeholder" data-placeholder-for="u2432_content"><!-- placeholder node --></span>
-        <span class="nonblock nontext clip_frame grpelem placeholder" data-placeholder-for="u2448_content"><!-- placeholder node --></span>
-        <span class="nonblock nontext clip_frame grpelem placeholder" data-placeholder-for="u2488_content"><!-- placeholder node --></span>
-        <span class="clearfix grpelem placeholder" data-placeholder-for="u420-4_content"><!-- placeholder node --></span>
-      </div>
+      <span class="nonblock nontext clip_frame grpelem placeholder" data-placeholder-for="u2432_content"><!-- placeholder node --></span>
+      <span class="nonblock nontext clip_frame grpelem placeholder" data-placeholder-for="u2448_content"><!-- placeholder node --></span>
+      <span class="nonblock nontext clip_frame grpelem placeholder" data-placeholder-for="u2488_content"><!-- placeholder node --></span>
+      <span class="clearfix grpelem placeholder" data-placeholder-for="u420-4_content"><!-- placeholder node --></span>
     </div>
+  </div>
   </div>
   <div class="breakpoint" id="bp_320" data-max-width="320">
     <!-- responsive breakpoint node -->
@@ -281,16 +327,16 @@
               <div class="clearfix grpelem" id="pu430-7">
                 <!-- column -->
                 <span class="nonblock nontext clearfix colelem placeholder" data-placeholder-for="u430-7_content"><!-- placeholder node --></span>
-                <span class="clearfix colelem placeholder" data-placeholder-for="u420-4_content"><!-- placeholder node --></span>
-              </div>
-              <span class="nonblock nontext clip_frame grpelem placeholder" data-placeholder-for="u2432_content"><!-- placeholder node --></span>
-              <span class="nonblock nontext clip_frame grpelem placeholder" data-placeholder-for="u2448_content"><!-- placeholder node --></span>
-              <span class="nonblock nontext clip_frame grpelem placeholder" data-placeholder-for="u2488_content"><!-- placeholder node --></span>
-            </div>
-          </div>
-        </div>
+        <span class="clearfix colelem placeholder" data-placeholder-for="u420-4_content"><!-- placeholder node --></span>
       </div>
+      <span class="nonblock nontext clip_frame grpelem placeholder" data-placeholder-for="u2432_content"><!-- placeholder node --></span>
+      <span class="nonblock nontext clip_frame grpelem placeholder" data-placeholder-for="u2448_content"><!-- placeholder node --></span>
+      <span class="nonblock nontext clip_frame grpelem placeholder" data-placeholder-for="u2488_content"><!-- placeholder node --></span>
     </div>
+  </div>
+  </div>
+  </div>
+  </div>
   </div>
   <!-- Other scripts -->
   <script type="text/javascript">

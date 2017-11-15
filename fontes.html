@@ -56,9 +56,8 @@
             $('#loading').hide();
             $('#componente').html(data);
             $('#componenteTabela').DataTable({
-              searching: false,
+              searching: true,
               "bLengthChange": false,
-              ordering: false,
               responsive: true,
               "language": {
                 "info": "Mostrando _START_ a _END_ de _TOTAL_ componentes",
@@ -68,7 +67,8 @@
                   "next": ">>",
                   "previous": "<<"
                 }
-              }
+              },
+              "sDom": "ltipr"
             });
             $('#componente').show();
             $('#componenteTabela').on('click', '.fake-btn', function(){
@@ -78,6 +78,12 @@
                 function () {
                   window.location.replace("monteseupc.html");
               });
+            });
+            $('#soquete').on('click', '.fake-btn-filter', function() {
+              var filtro = $(this).data('filtro');
+              $('#componenteTabela').DataTable().column(2).search(
+                $(this).data('filtro'),
+              ).draw();
             });
           }).fail(function(){
             alert("Erro no carregamento.");
@@ -141,9 +147,46 @@
             <div id="loading">
               <img src="../images/loadingComp.gif" width="64px" height="64px"/>
             </div>
+            <div id="filtros" style="float: left; width='150px';">
+              <table id='soquete'>
+                <colgroup>
+                  <col style='width: 50px'>
+                  <col style='width: 100px'>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th class='tg-filter-header' style='text-align: center;' colspan='2'>Soquetes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th class='tg-filter'><input type='button' class='fake-btn-filter' data-filtro='LGA1150' value='X'></th>
+                    <th class='tg-filter'>LGA 1150</th>
+                  </tr>
+                  <tr>
+                    <th class='tg-filter'><input type='button' class='fake-btn-filter' data-filtro='LGA1151' value='X'></th>
+                    <th class='tg-filter'>LGA 1151</th>
+                  </tr>
+                  <tr>
+                    <th class='tg-filter'><input type='button' class='fake-btn-filter' data-filtro='AM3' value='X'></th>
+                    <th class='tg-filter'>AM3</th>
+                  </tr>
+                  <tr>
+                    <th class='tg-filter'><input type='button' class='fake-btn-filter' data-filtro='AM3+' value='X'></th>
+                    <th class='tg-filter'>AM3+</th>
+                  </tr>
+                  <tr>
+                    <th class='tg-filter'><input type='button' class='fake-btn-filter' data-filtro='AM4' value='X'></th>
+                    <th class='tg-filter'>AM4</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <div id="componente">
             </div>
           </div>
+        </div>
+        <div class="verticalspacer" data-offset-top="127" data-content-above-spacer="127" data-content-below-spacer="415">
         </div>
         <div class="browser_width colelem" id="u416-bw">
           <div id="u416">

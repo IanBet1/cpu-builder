@@ -52,9 +52,8 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
             $('#loading').hide();
             $('#componente').html(data);
             $('#componenteTabela').DataTable({
-              searching: false,
+              searching: true,
               "bLengthChange": false,
-              ordering: false,
               responsive: true,
               "language": {
                 "info": "Mostrando _START_ a _END_ de _TOTAL_ componentes",
@@ -64,7 +63,8 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
                   "next": ">>",
                   "previous": "<<"
                 }
-              }
+              },
+              "sDom": "ltipr"
             });
             $('#componente').show();
             $('#componenteTabela').on('click', '.fake-btn', function(){
@@ -74,6 +74,12 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
                 function () {
                   window.location.replace("monteseupc.html");
               });
+            });
+            $('#soquete').on('click', '.fake-btn-filter', function() {
+              var filtro = $(this).data('filtro');
+              $('#componenteTabela').DataTable().column(4).search(
+                $(this).data('filtro'),
+              ).draw();
             });
           }).fail(function(){
             alert("Erro no carregamento.");
@@ -119,6 +125,33 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
        <div id="wrapper">
          <div id="loading">
            <img src="../images/loadingComp.gif" width="64px" height="64px"/>
+         </div>
+         <div id="filtros" style="float: left; width='80px';">
+           <table id='soquete'>
+             <colgroup>
+               <col style='width: 40px'>
+               <col style='width: 40px'>
+             </colgroup>
+             <thead>
+               <tr>
+                 <th class='tg-filter-header' style='text-align: center;' colspan='2'>Capacidade</th>
+               </tr>
+             </thead>
+             <tbody>
+               <tr>
+                 <th class='tg-filter'><input type='button' class='fake-btn-filter' data-filtro='1024 GB' value='X'></th>
+                 <th class='tg-filter'>1TB</th>
+               </tr>
+               <tr>
+                 <th class='tg-filter'><input type='button' class='fake-btn-filter' data-filtro='2048 GB' value='X'></th>
+                 <th class='tg-filter'>2TB</th>
+               </tr>
+               <tr>
+                 <th class='tg-filter'><input type='button' class='fake-btn-filter' data-filtro='4096 GB' value='X'></th>
+                 <th class='tg-filter'>4TB</th>
+               </tr>
+             </tbody>
+           </table>
          </div>
          <div id="componente">
          </div>
