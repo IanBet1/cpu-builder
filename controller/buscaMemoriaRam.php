@@ -29,19 +29,6 @@
                     $memoriaram -> setValorGeralMaxComponente($product['priceMax']);
                     $memoriaram -> setComponenteBasico($product['thumbnail']['url']);
 
-                    if (isset($_SESSION['placamae']) && empty($_SESSION['placamae'])) {
-                      $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($memoriaram -> getIdComponente());
-                      foreach ($retornoEspecifico['products'] as $product) {
-                          $memoriaram -> setVelocidadeComponente($product['technicalSpecification']['Velocidade da Memória']);
-                          $memoriaram -> setCapacidadeComponente($product['technicalSpecification']['Capacidade']);
-                          $memoriaram -> setMarcaComponente($product['technicalSpecification']['Marca']);
-                          $memoriaram -> setTipoMemComponente($product['technicalSpecification']['Tipo de Memória']);
-                      }
-
-                      $pos = strpos($memoriaram -> getNomeComponente(), $memoriaram -> getCapacidadeComponente());
-                      $memoriaram -> setNomeComponente(substr($memoriaram -> getNomeComponente(), 0, $pos));
-                      $memoriasram[] = $memoriaram;
-                  } else {
                     $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($memoriaram -> getIdComponente());
                     foreach ($retornoEspecifico['products'] as $product) {
                         $memoriaram -> setVelocidadeComponente($product['technicalSpecification']['Velocidade da Memória']);
@@ -52,14 +39,14 @@
 
                     $pos = strpos($memoriaram -> getNomeComponente(), $memoriaram -> getCapacidadeComponente());
                     $memoriaram -> setNomeComponente(substr($memoriaram -> getNomeComponente(), 0, $pos));
-                    if(!empty($_SESSION['placamaeTipMem'])){
+
+                    if(empty($_SESSION['placamae']) == true){
+                      $memoriasram[] = $memoriaram;
+                    } else {
                       if($memoriaram -> getTipoMemComponente() == $_SESSION['placamaeTipMem']) {
                         $memoriasram[] = $memoriaram;
                       }
-                    } else {
-                      $memoriasram[] = $memoriaram;
                     }
-                  }
               }
             }
         }

@@ -23,50 +23,33 @@
             $placamae -> setValorGeralMaxComponente($product['priceMax']);
             $placamae -> setComponenteBasico($product['thumbnail']['url']);
 
-            if(((isset($_SESSION['processador']) && empty($_SESSION['processador'])) || !isset($_SESSION['processador'])) && ((isset($_SESSION['memoriaram']) && empty($_SESSION['memoriaram'])) || !isset($_SESSION['memoriaram']))){
-              $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($placamae -> getIdComponente());
-              foreach ($retornoEspecifico['products'] as $product) {
-                  $placamae -> setMarcaComponente($product['technicalSpecification']['Marca']);
-                  $placamae -> setSocketComponente($product['technicalSpecification']['Soquete']);
-                  $placamae -> setMemTipComponente($product['technicalSpecification']['Tipo de Memória']);
-                  $placamae -> setMemMaxComponente($product['technicalSpecification']['Memória Máxima Suportável']);
-              }
-              $placasmae[] = $placamae;
+            $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($placamae -> getIdComponente());
+            foreach ($retornoEspecifico['products'] as $product) {
+                $placamae -> setMarcaComponente($product['technicalSpecification']['Marca']);
+                $placamae -> setSocketComponente($product['technicalSpecification']['Soquete']);
+                $placamae -> setMemTipComponente($product['technicalSpecification']['Tipo de Memória']);
+                $placamae -> setMemMaxComponente($product['technicalSpecification']['Memória Máxima Suportável']);
             }
-            else if ((isset($_SESSION['processador']) && !empty($_SESSION['processador'])) && (isset($_SESSION['memoriaram']) && empty($_SESSION['memoriaram']))) {
-              $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($placamae -> getIdComponente());
-              foreach ($retornoEspecifico['products'] as $product) {
-                  $placamae -> setMarcaComponente($product['technicalSpecification']['Marca']);
-                  $placamae -> setSocketComponente($product['technicalSpecification']['Soquete']);
-                  $placamae -> setMemTipComponente($product['technicalSpecification']['Tipo de Memória']);
-                  $placamae -> setMemMaxComponente($product['technicalSpecification']['Memória Máxima Suportável']);
-              }
+
+            $tam = strlen($placamae -> getNomeComponente());
+            $pos = strpos($placamae -> getNomeComponente(), $placamae -> getSocketComponente());
+            $tam -= $pos;
+            $pos += strlen($placamae -> getSocketComponente());
+            $placamae -> setNomeComponente($placamae -> getMarcaComponente().substr($placamae -> getNomeComponente(), $pos, $tam));
+
+            if(empty($_SESSION['processador']) == true && empty($_SESSION['memoriaram']) == true) {
+              $placasmae[] = $placamae;
+            } else if(empty($_SESSION['processador']) == false && empty($_SESSION['memoriaram']) == true) {
               $idCategoria -> setComponenteBasico($placamae -> getSocketComponente());
               $soquete = $idCategoria -> retornaSocket();
               if($soquete == $_SESSION['processadorMarca']){
                 $placasmae[] = $placamae;
               }
-            }
-            else if ((isset($_SESSION['processador']) && empty($_SESSION['processador'])) && (isset($_SESSION['memoriaram']) && !empty($_SESSION['memoriaram']))) {
-              $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($placamae -> getIdComponente());
-              foreach ($retornoEspecifico['products'] as $product) {
-                  $placamae -> setMarcaComponente($product['technicalSpecification']['Marca']);
-                  $placamae -> setSocketComponente($product['technicalSpecification']['Soquete']);
-                  $placamae -> setMemTipComponente($product['technicalSpecification']['Tipo de Memória']);
-                  $placamae -> setMemMaxComponente($product['technicalSpecification']['Memória Máxima Suportável']);
-              }
+            } else if(empty($_SESSION['processador']) == true && empty($_SESSION['memoriaram']) == false) {
               if($placamae -> getMemTipComponente() == $_SESSION['memoriaramTipMem']){
                 $placasmae[] = $placamae;
               }
-            }
-            else {
-              $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($placamae -> getIdComponente());
-              foreach ($retornoEspecifico['products'] as $product) {
-                  $placamae -> setMarcaComponente($product['technicalSpecification']['Marca']);
-                  $placamae -> setSocketComponente($product['technicalSpecification']['Soquete']);
-                  $placamae -> setMemTipComponente($product['technicalSpecification']['Tipo de Memória']);
-                  $placamae -> setMemMaxComponente($product['technicalSpecification']['Memória Máxima Suportável']);
-              }
+            } else if(empty($_SESSION['processador']) == false && empty($_SESSION['memoriaram']) == false) {
               $idCategoria -> setComponenteBasico($placamae -> getSocketComponente());
               $soquete = $idCategoria -> retornaSocket();
               if($soquete == $_SESSION['processadorMarca'] && $placamae -> getMemTipComponente() == $_SESSION['memoriaramTipMem']){

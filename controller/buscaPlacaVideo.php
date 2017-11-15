@@ -31,19 +31,6 @@
             $pos = strlen($placavideo -> getMarcaComponente());
             $placavideo -> setNomeComponente(substr($placavideo -> getNomeComponente(), $pos));
 
-            /*$retornoOferta = $leitorJson -> buscaOfertasDeProdutos($placavideo -> getIdComponente());
-            foreach ($retornoOferta['offers'] as $offer) {
-                $oferta = new lojaComponente();
-                $oferta -> setLogoLoja($offer['store']['thumbnail']);
-                $oferta -> setNomeLoja($offer['store']['name']);
-                $oferta -> setValorLoja($offer['price']);
-                $oferta -> setLinkLoja($offer['link']);
-
-                $ofertas[] = $oferta;
-            }
-            $placavideo -> setLojaComponente($ofertas);
-            $ofertas = null;*/
-
             $placasvideo[] = $placavideo;
         }
         $tabela = new criaTabela('placavideo', $placasvideo);

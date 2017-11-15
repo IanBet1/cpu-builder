@@ -21,33 +21,23 @@
             $processador -> setValorGeralMaxComponente($product['priceMax']);
             $processador -> setComponenteBasico($product['thumbnail']['url']);
 
-            if ((isset($_SESSION['placamae']) && empty($_SESSION['placamae']) || !isset($_SESSION['placamae']))) {
-                $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($processador -> getIdComponente());
+            $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($processador -> getIdComponente());
+            foreach ($retornoEspecifico['products'] as $product) {
+              $processador -> setVelocidadeComponente($product['technicalSpecification']['Velocidade']);
+              $processador -> setMarcaComponente($product['technicalSpecification']['Marca']);
+            }
 
-                foreach ($retornoEspecifico['products'] as $product) {
-                    $processador -> setVelocidadeComponente($product['technicalSpecification']['Velocidade']);
-                    $processador -> setMarcaComponente($product['technicalSpecification']['Marca']);
-                }
+            $pos = strpos($processador -> getNomeComponente(), $processador -> getVelocidadeComponente());
+            $processador -> setNomeComponente(substr($processador -> getNomeComponente(), 0, $pos));
 
-                $pos = strpos($processador -> getNomeComponente(), $processador -> getVelocidadeComponente());
-                $processador -> setNomeComponente(substr($processador -> getNomeComponente(), 0, $pos));
-                $processadores[] = $processador;
+            if(empty($_SESSION['placamae']) == true){
+              $processadores[] = $processador;
             } else {
-                $retornoEspecifico = $leitorJson -> buscaEspecificacaoTecnicaComponente($processador -> getIdComponente());
-
-                foreach ($retornoEspecifico['products'] as $product) {
-                    $processador -> setVelocidadeComponente($product['technicalSpecification']['Velocidade']);
-                    $processador -> setMarcaComponente($product['technicalSpecification']['Marca']);
-                }
-
-                $idCategoria -> setComponenteBasico($_SESSION['placamaeSoquete']);
-                $soquete = $idCategoria -> retornaSocket();
-
-                if ($processador -> getMarcaComponente() == $soquete) {
-                    $pos = strpos($processador -> getNomeComponente(), $processador -> getVelocidadeComponente());
-                    $processador -> setNomeComponente(substr($processador -> getNomeComponente(), 0, $pos));
-                    $processadores[] = $processador;
-                }
+              $idCategoria -> setComponenteBasico($_SESSION['placamaeSoquete']);
+              $soquete = $idCategoria -> retornaSocket();
+              if ($processador -> getMarcaComponente() == $soquete) {
+                $processadores[] = $processador;
+              }
             }
         }
         if(!empty($processadores)){
