@@ -5,7 +5,7 @@
     session_start();
     $_SESSION['precoTotal'] = "";
     $_SESSION['componente'] = "";
-    $retorno = "<table class='tg' style='undefined;table-layout: fixed; width: 700px'>
+    $retorno = "<table id='tabelaPrincipal' class='tg' style='undefined;table-layout: fixed; width: 700px'>
       <colgroup>
         <col style='width: 130px'>
         <col style='width: 50px'>
@@ -221,7 +221,7 @@
       echo $retorno;
     }
     else{
-      echo "<table class='tg' style='undefined;table-layout: fixed; width: 770px'>
+      echo "<table id='tabelaPrincipal' class='tg' style='undefined;table-layout: fixed; width: 770px'>
         <colgroup>
           <col style='width: 130px'>
           <col style='width: 100px'>
