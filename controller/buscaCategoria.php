@@ -18,7 +18,7 @@
         public function retornaCategoria() {
             $meubanco = new mySql();
             $meubanco -> dbConnect();
-            $retorno = $meubanco->selectWhere('categoriacomponente', 'nomeComponente', '=', $this -> componenteBasico, 'char');
+            $retorno = $meubanco -> selectWhere('categoriaComponente', 'nomeComponente', '=', $this -> componenteBasico, 'char');
             if (mysqli_num_rows($retorno) > 0) {
                 while ($linha = mysqli_fetch_assoc($retorno)) {
                     $meubanco -> dbDisconnect();
@@ -33,7 +33,7 @@
         public function retornaSocket() {
             $meubanco = new mySql();
             $meubanco -> dbConnect();
-            $retorno = $meubanco->selectWhere('socketcomponente', 'nomeSocket', '=', $this -> componenteBasico, 'char');
+            $retorno = $meubanco->selectWhere('socketComponente', 'nomeSocket', '=', $this -> componenteBasico, 'char');
             if (mysqli_num_rows($retorno) > 0) {
                 while ($linha = mysqli_fetch_assoc($retorno)) {
                     $meubanco -> dbDisconnect();

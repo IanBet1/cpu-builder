@@ -28,7 +28,7 @@ class mySql extends dbConfig
 
     public function dbConnect()
     {
-        $this -> connectionString = mysqli_connect($this -> hostName, $this -> userName, null, $this -> databaseName);
+        $this -> connectionString = mysqli_connect($this -> hostName, $this -> userName, $this -> passCode, $this -> databaseName);
         return $this -> connectionString;
     }
 
@@ -52,7 +52,7 @@ class mySql extends dbConfig
 
     public function selectWhere($tableName, $rowName, $operator, $value, $valueType)
     {
-        $this -> sqlQuery = 'SELECT * FROM '.$tableName.' WHERE '.$rowName.' '.$operator.' ';
+        $this -> sqlQuery = 'SELECT * FROM '.$this -> databaseName.'.'.$tableName.' WHERE '.$rowName.' '.$operator.' ';
         if ($valueType == 'int') {
             $this -> sqlQuery .= $value;
         } elseif ($valueType == 'char') {

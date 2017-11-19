@@ -9,7 +9,7 @@ class dbConfig {
         $this -> serverName = 'localhost';
         $this -> userName = 'root';
         $this -> passCode = '';
-        $this -> dbName = 'dbcpubuilder';
+        $this -> dbName = 'dbCpuBuilder';
     }
 }
 ?>
