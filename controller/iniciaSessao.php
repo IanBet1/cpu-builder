@@ -206,7 +206,7 @@
       $retorno .= "<tr>
         <td class='tg-none'></td>
         <td class='tg-none'></td>
-        <td class='tg-none'></td>
+        <td class='tg-none'><a><i class='fa fa-download fa-3x' aria-hidden='true'></i></a></td>
         <td class='tg-none' colspan='3'><button class='fake-btn-value'>R$ ".number_format($_SESSION['precoTotal'], 2, ',', '.')."</button></td>
       </tr></table>";
       }
@@ -214,7 +214,7 @@
         $retorno .= "<tr>
           <td class='tg-none'></td>
           <td class='tg-none'></td>
-          <td class='tg-none'></td>
+          <td class='tg-none'><a><i class='fa fa-download fa-3x' aria-hidden='true'></i></a></td>
           <td class='tg-none' colspan='3'><button class='fake-btn-value'>R$ 0,00</button></td>
         </tr></table>";
       }
@@ -296,7 +296,7 @@
           <td class='tg-none'></td>
           <td class='tg-none'></td>
           <td class='tg-none'></td>
-          <td class='tg-none'></td>
+          <td class='tg-none'><a><i class='fa fa-download fa-3x' aria-hidden='true'></i></a></td>
           <td class='tg-none'><button class='fake-btn-value'>R$ 0,00</button></td>
         </tr>
       </table><br><br>";
