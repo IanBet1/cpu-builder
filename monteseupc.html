@@ -25,6 +25,7 @@
   <link rel="stylesheet" type="text/css" href="css/site_global.css?crc=4247960594" />
   <link rel="stylesheet" type="text/css" href="css/master_a-master.css?crc=534736446" />
   <link rel="stylesheet" type="text/css" href="css/monteseupc.css?crc=4252519177" id="pagesheet" />
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
   <!-- IE-only CSS -->
   <!--[if lt IE 9]>
   <link rel="stylesheet" type="text/css" href="css/iefonts_monteseupc.css?crc=373203005"/>
@@ -58,7 +59,7 @@
                   window.location.replace("monteseupc.html");
               });
             });
-            $('.tg').on('click', '.fake-btn-value', function(){
+            $('.tg').on('click', '.fa', function(){
               var doc = new jsPDF('p', 'pt');
               var elem = document.getElementById("tabelaPrincipal");
               var res = doc.autoTableHtmlToJson(elem);
